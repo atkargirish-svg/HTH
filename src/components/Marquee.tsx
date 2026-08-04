@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -12,25 +13,25 @@ export const Marquee = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-4 block">Collaboration</span>
-          <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter">INDUSTRY PARTNERS</h2>
+          <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-4 block">Proud Partners</span>
+          <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase">OUR SPONSORS</h2>
         </motion.div>
       </div>
 
       <div className="flex overflow-hidden group select-none">
         <div className="flex animate-marquee group-hover:pause-animation whitespace-nowrap py-10">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="mx-12 md:mx-20 flex flex-col items-center justify-center opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-              <div className="h-16 w-48 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center font-headline font-black text-2xl tracking-tighter italic">
-                TECH_BRAND_{i}
+            <div key={i} className="mx-12 md:mx-20 flex flex-col items-center justify-center opacity-30 grayscale">
+              <div className="h-16 w-64 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center font-headline font-black text-2xl tracking-tighter italic">
+                COMING SOON
               </div>
             </div>
           ))}
           {/* Duplicate for infinite effect */}
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i + 10} className="mx-12 md:mx-20 flex flex-col items-center justify-center opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-              <div className="h-16 w-48 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center font-headline font-black text-2xl tracking-tighter italic">
-                TECH_BRAND_{i}
+            <div key={i + 10} className="mx-12 md:mx-20 flex flex-col items-center justify-center opacity-30 grayscale">
+              <div className="h-16 w-64 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center font-headline font-black text-2xl tracking-tighter italic">
+                COMING SOON
               </div>
             </div>
           ))}
@@ -39,7 +40,7 @@ export const Marquee = () => {
 
       <div className="mt-12 text-center">
         <p className="font-code text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
-          Partnerships currently being onboarded. <span className="text-primary cursor-pointer hover:underline">Sponsor us →</span>
+          Sponsorships currently being onboarded. <span className="text-primary cursor-pointer hover:underline">Partner with us →</span>
         </p>
       </div>
 
@@ -49,7 +50,7 @@ export const Marquee = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
         }
         .pause-animation {
           animation-play-state: paused;

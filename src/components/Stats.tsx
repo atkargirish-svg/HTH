@@ -1,13 +1,14 @@
+
 "use client"
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { label: 'EXPECTED PARTICIPANTS', value: 5000, suffix: '+' },
-  { label: 'PRIZE POOL INR', value: 10, suffix: 'L' },
-  { label: 'HARDWARE TRACKS', value: 12, suffix: '' },
-  { label: 'SQUAD SIZE', value: 4, suffix: 'MAX' },
+  { label: 'NON-STOP INNOVATION', value: 24, suffix: 'HRS' },
+  { label: 'TOTAL TEAMS', value: 50, suffix: '' },
+  { label: 'PARTICIPANTS', value: 200, suffix: '+' },
+  { label: 'PRIZE POOL', value: 30, suffix: 'K' },
 ];
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -75,18 +76,6 @@ export const Stats = () => {
       
       {/* Decorative pulse effect */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] motherboard-grid" />
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ opacity: [0, 0.5, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-primary to-transparent"
-        />
-        <motion.div 
-          animate={{ opacity: [0, 0.5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-          className="absolute top-0 right-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-secondary to-transparent"
-        />
-      </div>
     </section>
   );
 };

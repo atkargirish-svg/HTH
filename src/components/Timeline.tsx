@@ -1,14 +1,19 @@
+
 "use client"
 
 import React from 'react';
 import { motion } from 'framer-motion';
 
 const events = [
-  { date: 'OCT 12, 2024', title: 'Power On', desc: 'Registrations open nationwide. Form your squad of 4 engineering visionaries.' },
-  { date: 'NOV 05, 2024', title: 'Blueprint Phase', desc: 'Abstract submission & technical review of hardware architectures.' },
-  { date: 'DEC 15, 2024', title: 'Solder Session', desc: 'Shortlisted teams announced. Prototype development begins in labs.' },
-  { date: 'JAN 20, 2025', title: 'Mainboard Finals', desc: '48-hour intensive hardware hackathon in the heart of Bangalore.' },
-  { date: 'JAN 22, 2025', title: 'Grand Output', desc: 'Project showcase & National Hardware Award Ceremony.' },
+  { day: 'DAY 1', time: '09:00 AM', title: 'Check-in & Breakfast', desc: 'Welcome participants and verify registrations.' },
+  { day: 'DAY 1', time: '10:00 AM', title: 'Opening Ceremony', desc: 'Hackathon officially begins. National hardware engineering start!' },
+  { day: 'DAY 1', time: '02:00 PM', title: 'Lunch Break', desc: 'Strategic energy recharge session (02:00 PM – 03:00 PM).' },
+  { day: 'DAY 1', time: '03:00 PM', title: 'Mentoring Round', desc: 'Expert guidance for hardware architecture and schematics.' },
+  { day: 'DAY 1', time: '08:00 PM', title: 'Elimination Round', desc: 'Critical review of progress and technical viability check.' },
+  { day: 'OVERNIGHT', time: '11:00 PM', title: 'Coding Session', desc: 'Intensive build period with continuous tea & snacks.' },
+  { day: 'DAY 2', time: '09:00 AM', title: 'Breakfast', desc: 'Fueling up for the final submission phase.' },
+  { day: 'DAY 2', time: '09:00 AM', title: 'Final Submission', desc: 'Hardware polishing and technical documentation (until 12:00 PM).' },
+  { day: 'DAY 2', time: '12:00 PM', title: 'Result Declaration', desc: 'Grand results and Closing Ceremony (12:00 PM – 01:00 PM).' },
 ];
 
 export const Timeline = () => {
@@ -22,7 +27,7 @@ export const Timeline = () => {
             viewport={{ once: true }}
           >
             <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-4 block">Operation Log</span>
-            <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tighter">MOTHERBOARD TIMELINE</h2>
+            <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tighter">EVENT TIMELINE</h2>
           </motion.div>
         </div>
 
@@ -49,8 +54,8 @@ export const Timeline = () => {
                   transition={{ duration: 0.8, delay: i * 0.1 }}
                   className="glass-card p-8 rounded-2xl relative group hover:border-primary/40 transition-colors duration-500"
                 >
-                  <div className="absolute top-4 right-4 font-code text-[10px] text-muted-foreground/30">LOG_{i+1}</div>
-                  <span className="font-code text-primary text-xs font-bold block mb-3 tracking-widest">{event.date}</span>
+                  <div className="absolute top-4 right-4 font-code text-[10px] text-muted-foreground/30">{event.day}</div>
+                  <span className="font-code text-primary text-xs font-bold block mb-3 tracking-widest">{event.time}</span>
                   <h3 className="font-headline text-3xl font-black text-white mb-4 tracking-tight uppercase">{event.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{event.desc}</p>
                   
@@ -79,15 +84,6 @@ export const Timeline = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Background Decorative Circuit Elements */}
-      <div className="absolute top-0 right-0 w-1/4 h-full opacity-5 pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M 0 10 L 40 10 L 50 20 L 50 80 L 60 90 L 100 90" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.2" />
-          <circle cx="50" cy="20" r="1" fill="hsl(var(--primary))" />
-          <circle cx="60" cy="90" r="1" fill="hsl(var(--primary))" />
-        </svg>
       </div>
     </section>
   );
