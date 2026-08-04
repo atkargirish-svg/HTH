@@ -18,7 +18,7 @@ export const Hero = () => {
         duration: 1.2,
         stagger: 0.03,
         ease: "power4.out",
-        delay: 3.5
+        delay: 1.5
       });
     }, containerRef);
     return () => ctx.revert();
@@ -27,8 +27,7 @@ export const Hero = () => {
   const title = "HTH INDIA";
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
-      {/* Background Matrix/PCB Elements */}
+    <section ref={containerRef} className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-20 md:pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 motherboard-grid" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
@@ -38,14 +37,14 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 3.8, duration: 1 }}
-          className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border-primary/20 text-primary mb-12"
+          transition={{ delay: 1.8, duration: 1 }}
+          className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12"
         >
-          <Cpu className="w-4 h-4" />
-          <span className="font-code text-[10px] font-bold tracking-[0.3em] uppercase">24-Hour National Hardware Hackathon</span>
+          <Cpu className="w-3 h-3 md:w-4 md:h-4" />
+          <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">24-Hour National Hardware Hackathon</span>
         </motion.div>
 
-        <h1 className="font-headline text-[clamp(3rem,12vw,10rem)] font-black leading-[0.85] tracking-tighter mb-8 perspective-1000">
+        <h1 className="font-headline text-[clamp(2.5rem,10vw,10rem)] font-black leading-[0.85] tracking-tighter mb-6 md:mb-8 perspective-1000">
           <div className="overflow-hidden inline-flex flex-wrap justify-center">
             {title.split(" ").map((word, wi) => (
               <span key={wi} className="mr-[0.3em] last:mr-0 inline-flex">
@@ -59,8 +58,8 @@ export const Hero = () => {
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 4.5, duration: 1 }}
-            className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary block mt-4"
+            transition={{ delay: 2.5, duration: 1 }}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary block mt-2 md:mt-4"
           >
             HACK THE HARDWARE
           </motion.span>
@@ -69,47 +68,47 @@ export const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 4.8, duration: 1 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed"
+          transition={{ delay: 2.8, duration: 1 }}
+          className="text-muted-foreground text-sm md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed"
         >
-          HTH INDIA is a 24-hour overnight hardware hackathon where engineering students collaborate, innovate and build impactful hardware-driven solutions with mentor support.
+          An overnight engineering spectacle building impactful hardware-driven solutions with expert support.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 5.1, duration: 1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          transition={{ delay: 3.1, duration: 1 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
         >
-          <MagneticButton className="px-10 py-5 text-base">
+          <MagneticButton className="w-full sm:w-auto px-10 py-4 md:py-5 text-sm md:text-base">
             REGISTER NOW
           </MagneticButton>
-          <MagneticButton variant="outline" className="px-10 py-5 text-base">
-            DOWNLOAD BROCHURE
+          <MagneticButton variant="outline" className="w-full sm:w-auto px-10 py-4 md:py-5 text-sm md:text-base">
+            BROCHURE
           </MagneticButton>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 5.5, duration: 1.5 }}
-          className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12 border-t border-white/5"
+          transition={{ delay: 3.5, duration: 1.5 }}
+          className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto pt-8 md:pt-12 border-t border-white/5"
         >
           <div className="flex flex-col gap-1">
-            <span className="font-code text-[10px] text-muted-foreground uppercase tracking-widest">Date</span>
-            <span className="font-headline font-bold text-lg">SEPT 28-29, 2026</span>
+            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Date</span>
+            <span className="font-headline font-bold text-sm md:text-lg">SEPT 28-29, 2026</span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="font-code text-[10px] text-muted-foreground uppercase tracking-widest">Venue</span>
-            <span className="font-headline font-bold text-lg">SCET, NAGPUR</span>
+            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Venue</span>
+            <span className="font-headline font-bold text-sm md:text-lg">SCET, NAGPUR</span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="font-code text-[10px] text-muted-foreground uppercase tracking-widest">Prize Pool</span>
-            <span className="font-headline font-bold text-lg">₹30,000</span>
+            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Prize</span>
+            <span className="font-headline font-bold text-sm md:text-lg">₹30,000</span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="font-code text-[10px] text-muted-foreground uppercase tracking-widest">Status</span>
-            <span className="font-headline font-bold text-lg text-primary">COMING SOON</span>
+            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Status</span>
+            <span className="font-headline font-bold text-sm md:text-lg text-primary uppercase">Active</span>
           </div>
         </motion.div>
       </div>
@@ -117,9 +116,9 @@ export const Hero = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground/30"
+        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground/30"
       >
-        <ChevronDown className="w-6 h-6" />
+        <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
       </motion.div>
     </section>
   );
