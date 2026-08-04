@@ -13,9 +13,9 @@ import { TrackScout } from '@/components/TrackScout';
 import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
-import { Cpu, Zap, Box, Smartphone, Lightbulb, Users, Trophy, Building } from 'lucide-react';
+import { Cpu, Zap, Smartphone, Lightbulb, Trophy } from 'lucide-react';
 
-const teamMembers = [
+const leadershipMembers = [
   { name: "Sakshi Maind", role: "Lead" },
   { name: "Manish Wanjari", role: "Co-Lead" },
   { name: "Chaitanya Kadu", role: "Management Team" },
@@ -51,7 +51,7 @@ export default function Home() {
               </h2>
               <div className="space-y-8">
                 <p className="text-xl text-muted-foreground leading-relaxed font-body">
-                  HTH INDIA is a 24-hour national hardware hackathon organized by the Department of Electronics & Telecommunication Engineering at Suryodaya College of Engineering & Technology. We provide an innovation-driven platform where students solve real-world engineering challenges.
+                  Hack The Hardware India (HTH INDIA) is a 24-hour national hardware hackathon organized by the Department of Electronics & Telecommunication Engineering at Suryodaya College of Engineering & Technology. The event provides an innovation-driven platform where students collaborate in teams, solve real-world engineering challenges, develop working hardware prototypes, receive guidance from mentors and present their solutions before judges after an intensive overnight build experience.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
                   <div className="flex flex-col gap-2">
@@ -95,7 +95,7 @@ export default function Home() {
 
       <Stats />
 
-      {/* Tracks Section - Placeholder as per rules */}
+      {/* Tracks Section */}
       <section id="tracks" className="py-40 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
@@ -132,10 +132,10 @@ export default function Home() {
                 <Trophy className="w-24 h-24 text-primary mb-8 animate-bounce" />
                 <h3 className="font-headline text-5xl font-black mb-6 uppercase tracking-tighter">Prizes & Rewards</h3>
                 <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                  Total Prize Pool <span className="text-white font-black">₹30,000</span> including incubation support.
+                  Total Prize Pool <span className="text-white font-black">₹30,000</span> including incubation support. Prize distribution details will be announced during the closing ceremony.
                 </p>
                 <div className="font-code text-xs text-primary font-bold tracking-widest uppercase py-4 border-t border-white/5">
-                  Details to be announced during Closing Ceremony
+                  Full breakdown available at ceremony
                 </div>
                 <div className="absolute top-0 right-0 p-8 opacity-10">
                    <Zap className="w-40 h-40" />
@@ -153,24 +153,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Organisers Section */}
-      <section id="team" className="py-40 bg-background relative">
-        <div className="container mx-auto px-6">
+      {/* Leadership Section */}
+      <section id="team" className="py-40 bg-background relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 motherboard-grid opacity-[0.02] pointer-events-none" />
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-32">
             <motion.span 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-code text-primary tracking-[0.4em] uppercase text-xs block mb-4"
             >
               The Visionaries
             </motion.span>
-            <h2 className="font-headline text-5xl md:text-8xl font-black tracking-tighter uppercase">Meet The Core Team</h2>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-headline text-5xl md:text-8xl font-black tracking-tighter uppercase mb-6"
+            >
+              Meet The Leadership
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed"
+            >
+              The passionate team driving HTH INDIA and building India's next-generation hardware innovation ecosystem.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            {teamMembers.map((member, i) => (
-              <TeamCard key={i} name={member.name} role={member.role} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12">
+            {leadershipMembers.map((member, i) => (
+              <div 
+                key={i} 
+                className={`${i % 2 === 0 ? 'lg:translate-y-12' : 'lg:-translate-y-12'} transition-transform duration-1000`}
+              >
+                <TeamCard index={i} name={member.name} role={member.role} />
+              </div>
             ))}
           </div>
         </div>
