@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -6,118 +5,132 @@ import { motion } from 'framer-motion';
 import { Loader } from '@/components/Loader';
 import { CustomCursor } from '@/components/CustomCursor';
 import { Navbar } from '@/components/Navbar';
-import { MagneticButton } from '@/components/MagneticButton';
+import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
 import { Timeline } from '@/components/Timeline';
 import { HardwareCard } from '@/components/HardwareCard';
 import { TrackScout } from '@/components/TrackScout';
-import { Cpu, Zap, Radio, Bot, Globe, HeartPulse } from 'lucide-react';
+import { Marquee } from '@/components/Marquee';
+import { MagneticButton } from '@/components/MagneticButton';
+import { Cpu, Zap, Bot, Globe, HeartPulse, Shield, Smartphone, Lightbulb } from 'lucide-react';
 
 const tracks = [
   {
-    title: "EDGE AI & ROBOTICS",
-    tag: "TK-01",
-    desc: "Deploy neural networks on embedded devices. Real-time vision, autonomous agents, and bio-inspired robotics.",
+    title: "EDGE AI & VISION",
+    tag: "SYS-01",
+    desc: "Implementing transformer models and CNNs on localized silicon. Focus on ultra-low latency inference and real-time processing.",
     icon: Bot
   },
   {
-    title: "IoT ECOSYSTEMS",
-    tag: "TK-02",
-    desc: "Architecting large-scale sensor networks. LoraWAN, mesh protocols, and energy-harvesting hardware nodes.",
-    icon: Globe
+    title: "SECURE CONNECTIVITY",
+    tag: "SYS-02",
+    desc: "Next-gen communication protocols. Hardware-level encryption, decentralised mesh networking, and industrial-grade IoT nodes.",
+    icon: Shield
   },
   {
-    title: "HEALTH TECH 2.0",
-    tag: "TK-03",
-    desc: "Next-gen diagnostic wearables, non-invasive sensors, and affordable medical hardware for rural clinics.",
+    title: "BIO-SENSING ARCH",
+    tag: "SYS-03",
+    desc: "Precision health tech wearables. High-fidelity non-invasive sensors, biometric data synthesis, and diagnostic hardware.",
     icon: HeartPulse
   },
   {
-    title: "GREEN CHIPS",
-    tag: "TK-04",
-    desc: "Sustainable hardware engineering. Biodegradable PCBs, ultra-low power silicon, and e-waste repurposing.",
+    title: "ENERGY SYSTEMS",
+    tag: "SYS-04",
+    desc: "Sustainable power engineering. Advanced battery management, energy harvesting modules, and high-efficiency power delivery.",
     icon: Zap
   }
 ];
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen selection:bg-primary selection:text-black">
+      <div className="noise-overlay" />
       <Loader />
       <CustomCursor />
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl">
+      <Hero />
+
+      {/* About Section */}
+      <section id="about" className="py-40 relative bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 3.8, duration: 1 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
             >
-              <span className="font-code text-primary tracking-[0.4em] uppercase mb-6 block text-sm">
-                National Level Hardware Challenge
-              </span>
-              <h1 className="font-headline text-7xl md:text-9xl font-black leading-[0.9] tracking-tighter mb-8">
-                HACK THE <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary animate-gradient-x">
-                  HARDWARE
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-body max-w-2xl leading-relaxed mb-12">
-                India's premiere engineering spectacle. 48 hours to solder, code, and deploy physical systems that change reality.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6">
-                <MagneticButton className="px-10 py-5 text-lg">
-                  DOWNLOAD BLUEPRINT
-                </MagneticButton>
-                <MagneticButton variant="outline" className="px-10 py-5 text-lg">
-                  WATCH TEASER
-                  <Radio className="w-5 h-5 animate-pulse" />
-                </MagneticButton>
+              <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-6 block">The Initiative</span>
+              <h2 className="font-headline text-5xl md:text-7xl font-black tracking-tighter mb-10 leading-none">
+                ENGINEERING THE <br />
+                <span className="text-white/20">NEXT FRONTIER</span>
+              </h2>
+              <div className="space-y-8">
+                <p className="text-xl text-muted-foreground leading-relaxed font-body">
+                  HTH INDIA is the definitive national hardware hackathon, designed to challenge the limits of engineering. It's not just about code; it's about silicon, PCBs, sensors, and the physical realization of innovation.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3 text-primary">
+                      <Lightbulb className="w-5 h-5" />
+                      <span className="font-headline font-bold uppercase tracking-tight">Ideation</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">From concept to schematic, every wire matters.</p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3 text-secondary">
+                      <Smartphone className="w-5 h-5" />
+                      <span className="font-headline font-bold uppercase tracking-tight">Deployment</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">Real-world hardware for national scale impact.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 }}
+              className="relative aspect-square"
+            >
+              <div className="absolute inset-0 glass-card rounded-3xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
+                <div className="absolute inset-0 motherboard-grid opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/5 rounded-full animate-pulse" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] border border-white/10 rounded-full" />
+                
+                <div className="absolute bottom-10 left-10 p-6 glass-card border-white/10 rounded-2xl">
+                  <span className="font-code text-[10px] text-muted-foreground block mb-1">UNIT_001</span>
+                  <span className="font-headline font-black text-xl tracking-tight">NATIONAL HUB</span>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
-
-        {/* Cinematic Background Elements */}
-        <div className="absolute right-[-10%] top-[20%] w-[60%] h-[60%] opacity-20 pointer-events-none">
-          <svg className="w-full h-full text-primary" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="250" cy="250" r="150" stroke="currentColor" strokeWidth="0.5" strokeDasharray="10 10" />
-            <motion.circle 
-              cx="250" cy="250" r="150" 
-              stroke="currentColor" 
-              strokeWidth="1" 
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ delay: 4, duration: 5, repeat: Infinity, ease: "linear" }}
-            />
-            <path d="M 250 50 L 250 0 M 250 450 L 250 500 M 50 250 L 0 250 M 450 250 L 500 250" stroke="currentColor" strokeWidth="1" />
-          </svg>
-        </div>
       </section>
 
-      {/* Stats Section */}
       <Stats />
 
       {/* Tracks Section */}
-      <section id="tracks" className="py-32 bg-background relative overflow-hidden">
+      <section id="tracks" className="py-40 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div className="max-w-2xl">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-10">
+            <div className="max-w-3xl">
               <motion.span 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="font-code text-primary tracking-[0.3em] uppercase block mb-4"
+                viewport={{ once: true }}
+                className="font-code text-primary tracking-[0.4em] uppercase text-xs block mb-4"
               >
                 Specializations
               </motion.span>
-              <h2 className="font-headline text-5xl md:text-6xl font-bold">CORE TRACKS</h2>
+              <h2 className="font-headline text-5xl md:text-8xl font-black tracking-tighter leading-none">CORE COMPETITION TRACKS</h2>
             </div>
-            <p className="text-muted-foreground max-w-sm text-lg">
-              Push the limits of silicon and copper in these curated competitive categories.
+            <p className="text-muted-foreground max-w-sm text-lg leading-relaxed border-l border-white/10 pl-8">
+              Push the boundaries of silicon and systems in these curated competitive tracks.
             </p>
           </div>
 
@@ -125,9 +138,10 @@ export default function Home() {
             {tracks.map((track, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.8 }}
               >
                 <HardwareCard {...track} />
               </motion.div>
@@ -136,55 +150,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Timeline Section */}
       <Timeline />
 
-      {/* Track Scout Section */}
       <TrackScout />
 
-      {/* Footer */}
-      <footer className="py-20 border-t border-border/50 relative overflow-hidden">
+      <Marquee />
+
+      {/* CTA Section */}
+      <section className="py-40 bg-background relative overflow-hidden text-center">
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <Cpu className="text-black w-5 h-5" />
-                </div>
-                <span className="font-headline font-black text-2xl tracking-tighter">HTH INDIA</span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-headline text-6xl md:text-9xl font-black tracking-tighter mb-12 uppercase leading-none">
+              READY TO <br />
+              <span className="text-primary">SOLDER?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed">
+              Applications are currently being screened nationwide. Join the elite engineering squad and build the future.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+              <MagneticButton className="px-16 py-8 text-xl">
+                APPLY FOR UNIT
+              </MagneticButton>
+              <div className="font-code text-xs text-muted-foreground tracking-widest uppercase">
+                Remaining Slots: 12 Teams
               </div>
-              <p className="text-muted-foreground max-w-sm text-lg leading-relaxed">
-                Building the backbone of India's hardware revolution. Organized by the National Engineering Council.
+            </div>
+          </motion.div>
+        </div>
+        <div className="absolute inset-0 opacity-[0.03] motherboard-grid pointer-events-none" />
+      </section>
+
+      {/* Footer */}
+      <footer className="py-24 border-t border-white/5 bg-[#05070B] relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-24">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                  <Cpu className="text-black w-6 h-6" />
+                </div>
+                <span className="font-headline font-black text-3xl tracking-tighter">HTH INDIA</span>
+              </div>
+              <p className="text-muted-foreground max-w-sm text-lg leading-relaxed font-body">
+                Building the backbone of India's hardware revolution. Engineering at national scale.
               </p>
             </div>
             <div>
-              <h4 className="font-headline font-bold mb-6 text-foreground uppercase tracking-widest text-sm">Navigation</h4>
-              <ul className="space-y-4 font-code text-sm">
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Resources</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact Support</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Brand Assets</a></li>
+              <h4 className="font-code font-bold mb-10 text-white uppercase tracking-[0.3em] text-[10px]">Operations</h4>
+              <ul className="space-y-5 font-headline text-sm font-medium">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Specifications</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Technical Log</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Support Hub</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Brand Assets</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-headline font-bold mb-6 text-foreground uppercase tracking-widest text-sm">Follow the Pulse</h4>
-              <ul className="space-y-4 font-code text-sm">
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Twitter (X)</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Discord Hub</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">GitHub Labs</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Instagram</a></li>
+              <h4 className="font-code font-bold mb-10 text-white uppercase tracking-[0.3em] text-[10px]">Communication</h4>
+              <ul className="space-y-5 font-headline text-sm font-medium">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Terminal (X)</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Discord Core</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Git Labs</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300">Instagram</a></li>
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-            <span className="font-code text-xs text-muted-foreground">© 2024 HTH INDIA. ALL SYSTEMS OPERATIONAL.</span>
-            <div className="flex gap-8 font-code text-xs text-muted-foreground uppercase">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Hardware</a>
+          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col gap-1">
+              <span className="font-code text-[9px] text-muted-foreground uppercase tracking-[0.2em]">© 2024 HTH INDIA. ALL SYSTEMS NOMINAL.</span>
+              <span className="font-code text-[9px] text-primary/40 uppercase tracking-[0.2em]">Built for National Engineering Council</span>
+            </div>
+            <div className="flex gap-12 font-code text-[10px] text-muted-foreground uppercase tracking-widest font-bold">
+              <a href="#" className="hover:text-primary transition-colors">Privacy</a>
+              <a href="#" className="hover:text-primary transition-colors">Terms</a>
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 pointer-events-none opacity-[0.02] motherboard-grid" />
       </footer>
     </main>
   );
