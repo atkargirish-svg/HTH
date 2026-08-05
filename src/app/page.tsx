@@ -14,7 +14,6 @@ import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
-import { SponsorScroll } from '@/components/SponsorScroll';
 import LogoLoop from '@/components/LogoLoop';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
@@ -43,14 +42,14 @@ const facultySupport = [
 const leadershipMembers = [
   { 
     name: "Sakshi Maind", 
-    linkedin: "https://www.linkedin.com/in/techsakshi-maind", 
-    instagram: "https://www.instagram.com/codewiz17", 
+    linkedin: "https://www.linkedin.com/in/techsakshi-maind?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
+    instagram: "https://www.instagram.com/codewiz17?igsh=Nnl1Y29icDFlZHVq", 
     image: "/leads/sakshi.PNG" 
   },
   { 
     name: "Manish Wanjari", 
-    linkedin: "https://www.linkedin.com/in/manish-wanjari-17b00035b", 
-    instagram: "https://www.instagram.com/manii__talks__", 
+    linkedin: "https://www.linkedin.com/in/manish-wanjari-17b00035b?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
+    instagram: "https://www.instagram.com/manii__talks__?igsh=MTZqOXRmZTBmNmhybA==", 
     image: "/leads/manish.PNG" 
   },
   { 
@@ -61,20 +60,20 @@ const leadershipMembers = [
   },
   { 
     name: "Atharva Atkar", 
-    linkedin: "https://www.linkedin.com/in/atharva-atkar-24271a384", 
-    instagram: "https://www.instagram.com/atharva_atkar1", 
+    linkedin: "https://www.linkedin.com/in/atharva-atkar-24271a384?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
+    instagram: "https://www.instagram.com/atharva_atkar1?igsh=MWd1d2NiMWdpbGsxbw==", 
     image: "/leads/atharva.PNG" 
   },
   { 
     name: "Pranavti Thombre", 
     linkedin: "https://www.linkedin.com/in/pranavti-thombre-130407360", 
-    instagram: "https://www.instagram.com/pranavti_thombre", 
+    instagram: "https://www.instagram.com/pranavti_thombre?igsh=MXQ2bDZpdWZidzZlMg==", 
     image: "/leads/pranvti.PNG" 
   },
   { 
     name: "Saurabh Chavhan", 
-    linkedin: "https://www.linkedin.com/in/saurabh-chavhan-30176a392", 
-    instagram: "https://www.instagram.com/_sauuu_03_", 
+    linkedin: "https://www.linkedin.com/in/saurabh-chavhan-30176a392?utm_source=share_via&utm_content=profile&utm_medium=member_ios", 
+    instagram: "https://www.instagram.com/_sauuu_03_?igsh=MXRxNjd1ZmozbjZzdA%3D%3D&utm_source=qr", 
     image: "/leads/saurabh.PNG" 
   },
   { 
