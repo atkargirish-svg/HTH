@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -40,12 +41,42 @@ const facultySupport = [
 ];
 
 const leadershipMembers = [
-  { name: "Sakshi Maind", linkedin: "#", instagram: "#", image: "/leads/sakshi.PNG" },
-  { name: "Manish Wanjari", linkedin: "#", instagram: "#", image: "/leads/manish.PNG" },
-  { name: "Chaitanya Kadu", linkedin: "#", instagram: "#", image: "/leads/chaitanya.PNG" },
-  { name: "Atharva Atkar", linkedin: "#", instagram: "#", image: "/leads/atharva.PNG" },
-  { name: "Pranavti Thombre", linkedin: "#", instagram: "#", image: "/leads/pranvti.PNG" },
-  { name: "Saurabh Chauhan", linkedin: "#", instagram: "#", image: "/leads/saurabh.PNG" },
+  { 
+    name: "Sakshi Maind", 
+    linkedin: "https://www.linkedin.com/in/techsakshi-maind", 
+    instagram: "https://www.instagram.com/codewiz17", 
+    image: "/leads/sakshi.PNG" 
+  },
+  { 
+    name: "Manish Wanjari", 
+    linkedin: "https://www.linkedin.com/in/manish-wanjari-17b00035b", 
+    instagram: "https://www.instagram.com/manii__talks__", 
+    image: "/leads/manish.PNG" 
+  },
+  { 
+    name: "Chaitanya Kadu", 
+    linkedin: "#", 
+    instagram: "#", 
+    image: "/leads/chaitanya.PNG" 
+  },
+  { 
+    name: "Atharva Atkar", 
+    linkedin: "https://www.linkedin.com/in/atharva-atkar-24271a384", 
+    instagram: "https://www.instagram.com/atharva_atkar1", 
+    image: "/leads/atharva.PNG" 
+  },
+  { 
+    name: "Pranavti Thombre", 
+    linkedin: "https://www.linkedin.com/in/pranavti-thombre-130407360", 
+    instagram: "https://www.instagram.com/pranavti_thombre", 
+    image: "/leads/pranvti.PNG" 
+  },
+  { 
+    name: "Saurabh Chavhan", 
+    linkedin: "https://www.linkedin.com/in/saurabh-chavhan-30176a392", 
+    instagram: "https://www.instagram.com/_sauuu_03_", 
+    image: "/leads/saurabh.PNG" 
+  },
   { 
     name: "Kimaya Shrikrishna There", 
     linkedin: "https://www.linkedin.com/in/kimaya-there-812b7b389", 
