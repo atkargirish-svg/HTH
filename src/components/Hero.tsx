@@ -20,7 +20,7 @@ export const Hero = () => {
           speed={0.56} 
           squareSize={37} 
           direction='diagonal' 
-          borderColor="rgba(0,0,0,0.1)" 
+          borderColor="rgba(0,0,0,0.3)" 
           hoverFillColor='rgba(164,31,19,0.05)' 
           shape='hexagon' 
           hoverTrailAmount={5} 
@@ -33,7 +33,7 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12"
+          className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12 cursor-target"
         >
           <Cpu className="w-3 h-3 md:w-4 md:h-4" />
           <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">HTH INDIA 2.0 • PAN-Level Innovation</span>
@@ -72,14 +72,14 @@ export const Hero = () => {
         >
           <MagneticButton 
             onClick={() => window.open(REGISTRATION_URL, "_blank")}
-            className="w-full sm:w-auto px-12 py-5 text-base"
+            className="w-full sm:w-auto px-12 py-5 text-base cursor-target"
           >
             REGISTER NOW
           </MagneticButton>
           <MagneticButton 
             variant="outline" 
             onClick={() => window.open(INSTA_URL, "_blank")}
-            className="w-full sm:w-auto px-12 py-5 text-base"
+            className="w-full sm:w-auto px-12 py-5 text-base cursor-target"
           >
             INSTAGRAM
           </MagneticButton>
