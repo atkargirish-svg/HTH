@@ -1,16 +1,19 @@
+
 "use client"
 
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { User, Linkedin, Github, Instagram } from 'lucide-react';
+import { User, Linkedin, Instagram } from 'lucide-react';
 
 interface TeamCardProps {
   name: string;
   role: string;
   index: number;
+  linkedin?: string;
+  instagram?: string;
 }
 
-export const TeamCard = ({ name, role, index }: TeamCardProps) => {
+export const TeamCard = ({ name, role, index, linkedin, instagram }: TeamCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -103,31 +106,30 @@ export const TeamCard = ({ name, role, index }: TeamCardProps) => {
                 {name}
               </motion.h3>
               
-              <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-primary/5 border border-primary/10">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="font-code text-[10px] text-primary font-black tracking-widest uppercase">
-                  {role}
-                </span>
-              </div>
+              {/* Role badge removed as per request */}
             </div>
 
             <div className="absolute bottom-8 flex gap-5" style={{ transform: "translateZ(40px)" }}>
               <AnimatePresence>
                 {isHovered && (
                   <>
-                    <motion.a
-                      initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 5 }}
-                      href="#" className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/40"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </motion.a>
-                    <motion.a
-                      initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 5 }}
-                      transition={{ delay: 0.05 }}
-                      href="#" className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/40"
-                    >
-                      <Github className="w-4 h-4" />
-                    </motion.a>
+                    {linkedin && (
+                      <motion.a
+                        initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 5 }}
+                        href={linkedin} target="_blank" className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/40"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </motion.a>
+                    )}
+                    {instagram && (
+                      <motion.a
+                        initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 5 }}
+                        transition={{ delay: 0.05 }}
+                        href={instagram} target="_blank" className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/40"
+                      >
+                        <Instagram className="w-4 h-4" />
+                      </motion.a>
+                    )}
                   </>
                 )}
               </AnimatePresence>

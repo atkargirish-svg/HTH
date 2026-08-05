@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -16,12 +17,12 @@ import { Cpu, Smartphone, Lightbulb, Trophy } from 'lucide-react';
 import Image from 'next/image';
 
 const leadershipMembers = [
-  { name: "Sakshi Maind", role: "Lead" },
-  { name: "Manish Wanjari", role: "Co-Lead" },
-  { name: "Chaitanya Kadu", role: "Management Team" },
-  { name: "Saurabh Chauhan", role: "Social Media Team Head" },
-  { name: "Pranavti Thombre", role: "PR Team Head" },
-  { name: "Atharva Atkar", role: "Technical Head" },
+  { name: "Sakshi Maind", role: "Lead", linkedin: "#", instagram: "#" },
+  { name: "Manish Wanjari", role: "Co-Lead", linkedin: "#", instagram: "#" },
+  { name: "Chaitanya Kadu", role: "Management Team", linkedin: "#", instagram: "#" },
+  { name: "Atharva Atkar", role: "Technical Head", linkedin: "#", instagram: "#" },
+  { name: "Pranavti Thombre", role: "PR Team Head", linkedin: "#", instagram: "#" },
+  { name: "Saurabh Chauhan", role: "Social Media Team Head", linkedin: "#", instagram: "#" },
 ];
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
@@ -178,7 +179,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-foreground"
             >
-              Core Team
+              Meet The Core Team
             </motion.h2>
           </div>
 
@@ -188,7 +189,7 @@ export default function Home() {
                 key={i} 
                 className={`${i % 2 === 0 ? 'lg:translate-y-12' : 'lg:-translate-y-12'} transition-transform duration-1000`}
               >
-                <TeamCard index={i} name={member.name} role={member.role} />
+                <TeamCard index={i} name={member.name} role={member.role} linkedin={member.linkedin} instagram={member.instagram} />
               </div>
             ))}
           </div>
