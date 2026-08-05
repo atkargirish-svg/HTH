@@ -12,6 +12,7 @@ interface TeamCardProps {
   linkedin?: string;
   instagram?: string;
   image?: string;
+  role?: string;
 }
 
 export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardProps) => {
@@ -21,44 +22,44 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group w-full max-w-[280px] mx-auto"
+      className="relative group w-full max-w-[230px] mx-auto"
     >
       <TiltedCard
         imageSrc={image || '/placeholder-user.png'}
         altText={name}
         captionText={name}
-        containerHeight="350px"
-        containerWidth="280px"
-        imageHeight="350px"
-        imageWidth="280px"
-        rotateAmplitude={12}
-        scaleOnHover={1.05}
+        containerHeight="290px"
+        containerWidth="230px"
+        imageHeight="290px"
+        imageWidth="230px"
+        rotateAmplitude={10}
+        scaleOnHover={1.03}
         showTooltip={true}
         displayOverlayContent={true}
         overlayContent={
-          <div className="flex flex-col gap-3 pointer-events-auto">
-            <h3 className="font-headline text-lg font-bold text-white tracking-tight uppercase leading-none mb-2">
+          <div className="flex flex-col gap-2 pointer-events-auto">
+            <h3 className="font-headline text-sm font-bold text-white tracking-tight uppercase leading-tight mb-2">
               {name}
             </h3>
-            <div className="flex gap-3">
-              {linkedin && (
+            <div className="flex gap-2">
+              {linkedin && linkedin !== "#" && (
                 <a
                   href={linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-200"
+                  className="w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-200"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5" />
                 </a>
               )}
-              {instagram && (
+              {instagram && instagram !== "#" && (
                 <a
                   href={instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-200"
+                  className="w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-200"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <Instagram className="w-3.5 h-3.5" />
                 </a>
               )}
             </div>

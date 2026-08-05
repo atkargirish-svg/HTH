@@ -23,6 +23,20 @@ const leadershipMembers = [
   { name: "Atharva Atkar", role: "Technical Head", linkedin: "#", instagram: "#", image: "/leads/atharva.PNG" },
   { name: "Pranavti Thombre", role: "PR Team Head", linkedin: "#", instagram: "#", image: "/leads/pranvti.PNG" },
   { name: "Saurabh Chauhan", role: "Social Media Team Head", linkedin: "#", instagram: "#", image: "/leads/saurabh.PNG" },
+  { 
+    name: "Kimaya Shrikrishna There", 
+    role: "Core Team", 
+    linkedin: "https://www.linkedin.com/in/kimaya-there-812b7b389?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
+    instagram: "https://www.instagram.com/kims_.there?igsh=bmR2am45eDZvOHhj", 
+    image: "/leads/kimaya.jpeg" 
+  },
+  { 
+    name: "Shravani Dhabekar", 
+    role: "Core Team", 
+    linkedin: "https://www.linkedin.com/in/shravani-dhabekar-45bb2b337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
+    instagram: "https://www.instagram.com/shravani_d06?igsh=MTl0YTJqNmVwZGpubg%3D%3D&utm_source=qr", 
+    image: "/leads/shravni.jpeg" 
+  },
 ];
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
@@ -183,7 +197,7 @@ export default function Home() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto justify-items-center">
             {leadershipMembers.map((member, i) => (
               <TeamCard 
                 key={i}
