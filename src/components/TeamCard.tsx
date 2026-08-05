@@ -4,6 +4,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { User, Linkedin, Instagram } from 'lucide-react';
+import Image from 'next/image';
 
 interface TeamCardProps {
   name: string;
@@ -11,9 +12,10 @@ interface TeamCardProps {
   index: number;
   linkedin?: string;
   instagram?: string;
+  image?: string;
 }
 
-export const TeamCard = ({ name, role, index, linkedin, instagram }: TeamCardProps) => {
+export const TeamCard = ({ name, role, index, linkedin, instagram, image }: TeamCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -93,7 +95,16 @@ export const TeamCard = ({ name, role, index, linkedin, instagram }: TeamCardPro
                 className="absolute -inset-3 rounded-full border border-dashed border-primary/20 opacity-40"
               />
               <div className="w-32 h-32 rounded-full bg-background border border-foreground/10 flex items-center justify-center relative z-10 overflow-hidden shadow-lg">
-                <User className="w-12 h-12 text-foreground/10" />
+                {image ? (
+                  <Image 
+                    src={image} 
+                    alt={name} 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                ) : (
+                  <User className="w-12 h-12 text-foreground/10" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-50" />
               </div>
             </div>
@@ -105,8 +116,6 @@ export const TeamCard = ({ name, role, index, linkedin, instagram }: TeamCardPro
               >
                 {name}
               </motion.h3>
-              
-              {/* Role badge removed as per request */}
             </div>
 
             <div className="absolute bottom-8 flex gap-5" style={{ transform: "translateZ(40px)" }}>

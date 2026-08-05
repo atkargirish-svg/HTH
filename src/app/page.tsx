@@ -17,12 +17,12 @@ import { Cpu, Smartphone, Lightbulb, Trophy } from 'lucide-react';
 import Image from 'next/image';
 
 const leadershipMembers = [
-  { name: "Sakshi Maind", role: "Lead", linkedin: "#", instagram: "#" },
-  { name: "Manish Wanjari", role: "Co-Lead", linkedin: "#", instagram: "#" },
-  { name: "Chaitanya Kadu", role: "Management Team", linkedin: "#", instagram: "#" },
-  { name: "Atharva Atkar", role: "Technical Head", linkedin: "#", instagram: "#" },
-  { name: "Pranavti Thombre", role: "PR Team Head", linkedin: "#", instagram: "#" },
-  { name: "Saurabh Chauhan", role: "Social Media Team Head", linkedin: "#", instagram: "#" },
+  { name: "Sakshi Maind", role: "Lead", linkedin: "#", instagram: "#", image: "/leads/sakshi.PNG" },
+  { name: "Manish Wanjari", role: "Co-Lead", linkedin: "#", instagram: "#", image: "/leads/manish.PNG" },
+  { name: "Chaitanya Kadu", role: "Management Team", linkedin: "#", instagram: "#", image: "/leads/chaitanya.PNG" },
+  { name: "Atharva Atkar", role: "Technical Head", linkedin: "#", instagram: "#", image: "/leads/atharva.PNG" },
+  { name: "Pranavti Thombre", role: "PR Team Head", linkedin: "#", instagram: "#", image: "/leads/pranvti.PNG" },
+  { name: "Saurabh Chauhan", role: "Social Media Team Head", linkedin: "#", instagram: "#", image: "/leads/saurabh.PNG" },
 ];
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
@@ -189,7 +189,14 @@ export default function Home() {
                 key={i} 
                 className={`${i % 2 === 0 ? 'lg:translate-y-12' : 'lg:-translate-y-12'} transition-transform duration-1000`}
               >
-                <TeamCard index={i} name={member.name} role={member.role} linkedin={member.linkedin} instagram={member.instagram} />
+                <TeamCard 
+                  index={i} 
+                  name={member.name} 
+                  role={member.role} 
+                  linkedin={member.linkedin} 
+                  instagram={member.instagram} 
+                  image={member.image}
+                />
               </div>
             ))}
           </div>
