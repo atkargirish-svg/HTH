@@ -1,4 +1,3 @@
-
 .tilted-card-figure {
   position: relative;
   width: 100%;
@@ -8,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: none;
 }
 
 .tilted-card-mobile-alert {
@@ -31,9 +29,6 @@
   }
   .tilted-card-caption {
     display: none;
-  }
-  .tilted-card-figure {
-    cursor: auto;
   }
 }
 

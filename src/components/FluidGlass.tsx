@@ -1,4 +1,3 @@
-
 'use client';
 
 /* eslint-disable react/no-unknown-property */
@@ -18,7 +17,7 @@ interface FluidGlassProps {
 
 export default function FluidGlass({ imagePlaceholder = "/college.png" }: FluidGlassProps) {
   return (
-    <div className="w-full h-full relative cursor-none">
+    <div className="w-full h-full relative">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} gl={{ alpha: true }}>
         <Scene imagePlaceholder={imagePlaceholder} />
       </Canvas>
