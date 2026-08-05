@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Cpu } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const links = [
   { name: 'ABOUT', href: '#about' },
@@ -37,13 +38,14 @@ export const Navbar = () => {
           )}
         >
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center group overflow-hidden">
-              <Cpu className="text-white w-5 h-5 group-hover:rotate-90 transition-transform duration-500" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-headline font-black text-lg tracking-tighter leading-none text-foreground">HTH INDIA</span>
-              <span className="font-code text-[8px] text-muted-foreground tracking-[0.2em] uppercase">Hack The Hardware</span>
-            </div>
+            <Image 
+              src="/logo1.PNG" 
+              alt="HTH INDIA Logo" 
+              width={140} 
+              height={40} 
+              className="h-8 md:h-10 w-auto object-contain"
+              priority
+            />
           </div>
 
           <div className="hidden md:flex items-center gap-10">
@@ -82,9 +84,14 @@ export const Navbar = () => {
             exit={{ opacity: 0, x: 20 }}
             className="fixed inset-0 bg-background/98 backdrop-blur-3xl z-[90] p-12 flex flex-col items-center justify-center gap-8 pointer-events-auto md:hidden"
           >
-            <div className="absolute top-10 left-10 flex items-center gap-3">
-              <Cpu className="text-primary w-6 h-6" />
-              <span className="font-headline font-black text-2xl tracking-tighter text-foreground">HTH INDIA</span>
+            <div className="absolute top-10 left-10">
+              <Image 
+                src="/logo1.PNG" 
+                alt="HTH INDIA Logo" 
+                width={120} 
+                height={35} 
+                className="h-8 w-auto object-contain"
+              />
             </div>
             {links.map((link, i) => (
               <motion.a
