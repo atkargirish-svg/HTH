@@ -14,8 +14,18 @@ import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
 import LogoLoop from '@/components/LogoLoop';
+import CircularGallery from '@/components/CircularGallery';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
+
+const highlights2k25 = [
+  { image: '/2k25/d1.png', text: 'INNOVATION HUB' },
+  { image: '/2k25/d2.png', text: 'TEAM SPIRIT' },
+  { image: '/2k25/d3.png', text: 'FUTURE TECH' },
+  { image: '/2k25/d4.png', text: 'HARDCORE BUILD' },
+  { image: '/2k25/d5.png', text: 'WINNING MOMENTS' },
+  { image: '/2k25/d6.png', text: 'PITCH SESSION' },
+];
 
 const facultySupport = [
   { 
@@ -201,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sponsors Loop above Stats */}
+      {/* Sponsors Loop */}
       <div className="py-12 border-t border-foreground/5 bg-background">
         <LogoLoop 
           logos={techLogos}
@@ -250,6 +260,32 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 2k25 Highlights Section */}
+      <section className="py-24 bg-background relative overflow-hidden border-t border-foreground/5">
+        <div className="container mx-auto px-6 mb-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-4 block">Legacy</span>
+            <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase mb-8">HTH 2025 HIGHLIGHTS</h2>
+          </motion.div>
+        </div>
+
+        <div style={{ height: '600px', position: 'relative' }} className="cursor-target">
+          <CircularGallery
+            items={highlights2k25}
+            bend={3}
+            textColor="hsl(var(--primary))"
+            borderRadius={0.05}
+            scrollEase={0.02}
+            fontUrl="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+            font="bold 24px Space Grotesk"
+          />
         </div>
       </section>
 

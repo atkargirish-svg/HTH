@@ -52,6 +52,7 @@
     "maath": "^0.10.8",
     "meshline": "^3.3.1",
     "next": "14.2.23",
+    "ogl": "^1.0.11",
     "patch-package": "^8.0.0",
     "react": "18.3.1",
     "react-day-picker": "^9.11.3",
