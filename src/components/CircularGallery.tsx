@@ -19,6 +19,7 @@ function lerp(p1: number, p2: number, t: number) {
 
 function autoBind(instance: any) {
   const proto = Object.getPrototypeOf(instance);
+  if (!proto) return;
   Object.getOwnPropertyNames(proto).forEach(key => {
     if (key !== 'constructor' && typeof instance[key] === 'function') {
       instance[key] = instance[key].bind(instance);
@@ -257,7 +258,9 @@ class Media {
   }
   createShader() {
     const texture = new Texture(this.gl, {
-      generateMipmaps: true
+      generateMipmaps: false,
+      minFilter: this.gl.LINEAR,
+      magFilter: this.gl.LINEAR,
     });
     this.program = new Program(this.gl, {
       depthTest: false,
@@ -293,8 +296,8 @@ class Media {
         
         void main() {
           vec2 ratio = vec2(
-            min((uPlaneSizes.x / uPlaneSizes.y) / (uImageSizes.x / uImageSizes.y), 1.0),
-            min((uPlaneSizes.y / uPlaneSizes.x) / (uImageSizes.y / uImageSizes.x), 1.0)
+            min((uPlaneSizes.x / uPlaneSizes.y) / max(0.0001, (uImageSizes.x / uImageSizes.y)), 1.0),
+            min((uPlaneSizes.y / uPlaneSizes.x) / max(0.0001, (uImageSizes.y / uImageSizes.x)), 1.0)
           );
           vec2 uv = vec2(
             vUv.x * ratio.x + (1.0 - ratio.x) * 0.5,
@@ -304,7 +307,6 @@ class Media {
           
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           
-          // Smooth antialiasing for edges
           float edgeSmooth = 0.002;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
           
@@ -314,7 +316,7 @@ class Media {
       uniforms: {
         tMap: { value: texture },
         uPlaneSizes: { value: [0, 0] },
-        uImageSizes: { value: [0, 0] },
+        uImageSizes: { value: [1, 1] },
         uSpeed: { value: 0 },
         uTime: { value: 100 * Math.random() },
         uBorderRadius: { value: this.borderRadius }
@@ -360,13 +362,13 @@ class Media {
       const R = (H * H + B_abs * B_abs) / (2 * B_abs);
       const effectiveX = Math.min(Math.abs(x), H);
 
-      const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
+      const arc = R - Math.sqrt(Math.max(0.0001, R * R - effectiveX * effectiveX));
       if (this.bend > 0) {
         this.plane.position.y = -arc;
-        this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / R);
+        this.plane.rotation.z = -Math.sign(x) * Math.asin(Math.min(1, effectiveX / R));
       } else {
         this.plane.position.y = arc;
-        this.plane.rotation.z = Math.sign(x) * Math.asin(effectiveX / R);
+        this.plane.rotation.z = Math.sign(x) * Math.asin(Math.min(1, effectiveX / R));
       }
     }
 
@@ -398,8 +400,15 @@ class Media {
     this.scale = this.screen.height / 1500;
     this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
     this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    
+    // Scale down for small screens
+    if (this.screen.width < 768) {
+      this.plane.scale.y *= 0.7;
+      this.plane.scale.x *= 0.7;
+    }
+
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = 2;
+    this.padding = this.screen.width < 768 ? 1 : 2;
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
