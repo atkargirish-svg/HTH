@@ -1,17 +1,16 @@
+
 "use client"
 
 import React from 'react';
 import { motion } from 'framer-motion';
 
 const events = [
-  { day: 'DAY 1', time: '09:00 AM', title: 'Check-in', desc: 'Welcome & Breakfast.' },
-  { day: 'DAY 1', time: '10:00 AM', title: 'Opening', desc: 'Ceremony & Hackathon Begins!' },
-  { day: 'DAY 1', time: '02:00 PM', title: 'Lunch', desc: 'Strategic recharge break.' },
-  { day: 'DAY 1', time: '03:00 PM', title: 'Mentoring', desc: 'Expert hardware viability round.' },
-  { day: 'DAY 1', time: '08:00 PM', title: 'Elimination', desc: 'Technical verification check.' },
-  { day: 'OVERNIGHT', time: '11:00 PM', title: 'Build', desc: 'Intensive engineering & tea snacks.' },
-  { day: 'DAY 2', time: '09:00 AM', title: 'Final Submission', desc: 'Prototype demos & judging.' },
-  { day: 'DAY 2', time: '12:00 PM', title: 'Grand Finale', desc: 'Results & Closing Ceremony.' },
+  { day: 'STAGE 1', time: 'AUG 27, 2026', title: 'Registration Deadline', desc: 'Final date to submit team details and idea proposals via Unstop.' },
+  { day: 'STAGE 2', time: 'AUG 31, 2026', title: 'Shortlisting Results', desc: 'Announcement of Top 50 teams based on innovation and technical feasibility.' },
+  { day: 'STAGE 3', time: 'SEP 28, 09:00 AM', title: 'Grand Finale Kickoff', desc: 'Welcome ceremony and start of the 24-hour offline build session at SCET.' },
+  { day: 'STAGE 3', time: 'SEP 28, 03:00 PM', title: 'Expert Mentorship', desc: 'Industry mentors review prototype progress and technical documentation.' },
+  { day: 'STAGE 3', time: 'SEP 29, 09:00 AM', title: 'Final Submission', desc: 'Deadline for prototype building and start of jury demonstrations.' },
+  { day: 'STAGE 3', time: 'SEP 29, 12:00 PM', title: 'Grand Finale', desc: 'Product pitches, Q&A, and result announcement ceremony.' },
 ];
 
 export const Timeline = () => {
@@ -24,8 +23,8 @@ export const Timeline = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-4 block">Operation Log</span>
-            <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter text-foreground">TIMELINE</h2>
+            <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-4 block">Event Journey</span>
+            <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter text-foreground">THE ROADMAP</h2>
           </motion.div>
         </div>
 

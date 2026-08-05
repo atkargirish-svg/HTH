@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useRef } from 'react';
@@ -26,7 +27,7 @@ export const Hero = () => {
           className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12"
         >
           <Cpu className="w-3 h-3 md:w-4 md:h-4" />
-          <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">24-Hour National Hardware Hackathon</span>
+          <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">HTH INDIA 2.0 • PAN-Level Innovation</span>
         </motion.div>
 
         {/* Logo Image */}
@@ -52,7 +53,7 @@ export const Hero = () => {
           transition={{ delay: 1.8, duration: 1 }}
           className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed font-body"
         >
-          HTH INDIA is a 24-hour overnight hardware hackathon where engineering students collaborate, innovate and build impactful hardware-driven solutions with mentor support.
+          HTH 2.0 is a 24-hour national hardware hackathon where students build functional prototypes to bridge the gap between academic learning and industrial engineering.
         </motion.p>
 
         <motion.div
@@ -79,15 +80,15 @@ export const Hero = () => {
           className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto pt-8 border-t border-foreground/5"
         >
           <div className="flex flex-col gap-1 items-center">
-            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Date</span>
-            <span className="font-headline font-bold text-sm md:text-lg text-foreground">SEPT 28-29, 2026</span>
+            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Deadline</span>
+            <span className="font-headline font-bold text-sm md:text-lg text-foreground uppercase">AUG 27, 2026</span>
           </div>
           <div className="flex flex-col gap-1 items-center">
             <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Venue</span>
             <span className="font-headline font-bold text-sm md:text-lg text-foreground">SCET, NAGPUR</span>
           </div>
           <div className="flex flex-col gap-1 items-center">
-            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Prize</span>
+            <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Prize Pool</span>
             <span className="font-headline font-bold text-sm md:text-lg text-foreground">₹50,000</span>
           </div>
           <div className="flex flex-col gap-1 items-center">

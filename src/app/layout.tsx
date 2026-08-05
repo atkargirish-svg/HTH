@@ -1,18 +1,19 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'HTH INDIA – Hack The Hardware India',
-  description: 'National Level Hardware Hackathon. Engineering the future of Indian hardware innovation.',
+  title: 'HTH INDIA 2.0 – Hack The Hardware India',
+  description: 'National Level Hardware Hackathon 2.0. Engineering the future of Indian hardware innovation.',
   openGraph: {
-    title: 'HTH INDIA – Hack The Hardware',
+    title: 'HTH INDIA 2.0 – Hack The Hardware',
     description: 'The premier 24-hour national hardware hackathon.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HTH INDIA – Hack The Hardware',
+    title: 'HTH INDIA 2.0 – Hack The Hardware',
     description: 'National Level Hardware Engineering Spectacle.',
   }
 };

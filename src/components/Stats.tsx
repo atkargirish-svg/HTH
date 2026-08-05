@@ -1,13 +1,14 @@
+
 "use client"
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { label: 'INNOVATION', value: 24, suffix: 'HRS' },
-  { label: 'TEAMS', value: 50, suffix: '' },
+  { label: 'ENGINEERING', value: 24, suffix: 'HRS' },
+  { label: 'SHORTLISTED', value: 50, suffix: 'TEAMS' },
   { label: 'PARTICIPANTS', value: 200, suffix: '+' },
-  { label: 'PRIZE POOL', value: 50, suffix: 'K' },
+  { label: 'TOTAL POOL', value: 50, suffix: 'K' },
 ];
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -61,7 +62,7 @@ export const Stats = () => {
               <div className="flex items-center gap-2 md:gap-4">
                 <div className="h-[1px] w-8 md:w-10 bg-primary/40 group-hover:w-16 transition-all duration-500" />
                 <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.3em] text-muted-foreground uppercase">
-                  M_{i+1}
+                  METRIC_{i+1}
                 </span>
               </div>
               <Counter value={stat.value} suffix={stat.suffix} />
