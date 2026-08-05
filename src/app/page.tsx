@@ -13,6 +13,7 @@ import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import { Cpu, Smartphone, Lightbulb, Trophy } from 'lucide-react';
+import Image from 'next/image';
 
 const leadershipMembers = [
   { name: "Sakshi Maind", role: "Lead" },
@@ -79,6 +80,12 @@ export default function Home() {
               className="relative aspect-square hidden md:block"
             >
               <div className="absolute inset-0 glass-card rounded-[2.5rem] overflow-hidden group border-primary/10">
+                <Image 
+                  src="/college.png" 
+                  alt="Suryodaya College" 
+                  fill 
+                  className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
                 <div className="absolute inset-0 motherboard-grid opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
                 

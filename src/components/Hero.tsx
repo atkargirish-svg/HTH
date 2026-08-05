@@ -37,8 +37,8 @@ export const Hero = () => {
           <Image 
             src="/home.png" 
             alt="HTH INDIA Logo" 
-            width={750} 
-            height={375} 
+            width={1000} 
+            height={400} 
             priority
             className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(164,31,19,0.15)]"
           />
@@ -50,7 +50,8 @@ export const Hero = () => {
           transition={{ delay: 1.6, duration: 1 }}
           className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-secondary block font-headline text-2xl md:text-5xl font-black tracking-tighter mb-8"
         >
-          HACK THE HARDWARE
+          
+      
         </motion.span>
 
         <motion.p
