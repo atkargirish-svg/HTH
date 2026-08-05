@@ -14,6 +14,7 @@ import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
+import { SponsorScroll } from '@/components/SponsorScroll';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
 
@@ -157,6 +158,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Sponsors Preview above Stats */}
+      <div className="py-12 border-t border-foreground/5 bg-background">
+        <SponsorScroll />
+      </div>
 
       <Stats />
 

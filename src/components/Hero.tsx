@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { MagneticButton } from './MagneticButton';
 import { Cpu, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import Lanyard from './Lanyard';
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
 const INSTA_URL = "https://www.instagram.com/suryodayacollege?igsh=MWVlYXowbmV1cThjdg==";
@@ -19,6 +20,9 @@ export const Hero = () => {
         <div className="absolute inset-0 motherboard-grid" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
       </div>
+
+      {/* Interactive Lanyard/ID Card */}
+      <Lanyard />
 
       <div className="container relative z-10 mx-auto px-6 text-center">
         <motion.div
