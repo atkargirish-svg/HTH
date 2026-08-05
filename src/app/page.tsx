@@ -20,21 +20,18 @@ import Image from 'next/image';
 const facultySupport = [
   { 
     name: "Dr. Rasika Chafle", 
-    role: "Faculty Coordinator", 
     linkedin: "https://www.linkedin.com/in/dr-rasika-chafle-1090bb1a9", 
     instagram: "https://www.instagram.com/rasika_manapure", 
     image: "/leads/rasika.png" 
   },
   { 
     name: "Prof. Damini Tonde", 
-    role: "Faculty Advisor", 
     linkedin: "https://www.linkedin.com/in/damini-tonde-273171276", 
     instagram: "https://www.instagram.com/daminidandade", 
     image: "/leads/damini.png" 
   },
   { 
     name: "Prof. Smita Matte", 
-    role: "Faculty Advisor", 
     linkedin: "#", 
     instagram: "#", 
     image: "/leads/smita.png" 
@@ -42,22 +39,20 @@ const facultySupport = [
 ];
 
 const leadershipMembers = [
-  { name: "Sakshi Maind", role: "Lead", linkedin: "#", instagram: "#", image: "/leads/sakshi.PNG" },
-  { name: "Manish Wanjari", role: "Co-Lead", linkedin: "#", instagram: "#", image: "/leads/manish.PNG" },
-  { name: "Chaitanya Kadu", role: "Management Team", linkedin: "#", instagram: "#", image: "/leads/chaitanya.PNG" },
-  { name: "Atharva Atkar", role: "Technical Head", linkedin: "#", instagram: "#", image: "/leads/atharva.PNG" },
-  { name: "Pranavti Thombre", role: "PR Team Head", linkedin: "#", instagram: "#", image: "/leads/pranvti.PNG" },
-  { name: "Saurabh Chauhan", role: "Social Media Team Head", linkedin: "#", instagram: "#", image: "/leads/saurabh.PNG" },
+  { name: "Sakshi Maind", linkedin: "#", instagram: "#", image: "/leads/sakshi.PNG" },
+  { name: "Manish Wanjari", linkedin: "#", instagram: "#", image: "/leads/manish.PNG" },
+  { name: "Chaitanya Kadu", linkedin: "#", instagram: "#", image: "/leads/chaitanya.PNG" },
+  { name: "Atharva Atkar", linkedin: "#", instagram: "#", image: "/leads/atharva.PNG" },
+  { name: "Pranavti Thombre", linkedin: "#", instagram: "#", image: "/leads/pranvti.PNG" },
+  { name: "Saurabh Chauhan", linkedin: "#", instagram: "#", image: "/leads/saurabh.PNG" },
   { 
     name: "Kimaya Shrikrishna There", 
-    role: "Core Team", 
     linkedin: "https://www.linkedin.com/in/kimaya-there-812b7b389", 
     instagram: "https://www.instagram.com/kims_.there", 
     image: "/leads/kimaya.jpeg" 
   },
   { 
     name: "Shravani Dhabekar", 
-    role: "Core Team", 
     linkedin: "https://www.linkedin.com/in/shravani-dhabekar-45bb2b337", 
     instagram: "https://www.instagram.com/shravani_d06", 
     image: "/leads/shravni.jpeg" 
@@ -280,7 +275,6 @@ export default function Home() {
                 key={i}
                 index={i} 
                 name={member.name} 
-                role={member.role} 
                 linkedin={member.linkedin} 
                 instagram={member.instagram} 
                 image={member.image}
@@ -320,7 +314,6 @@ export default function Home() {
                 key={i}
                 index={i} 
                 name={member.name} 
-                role={member.role} 
                 linkedin={member.linkedin} 
                 instagram={member.instagram} 
                 image={member.image}
@@ -402,4 +395,3 @@ export default function Home() {
     </main>
   );
 }
-
