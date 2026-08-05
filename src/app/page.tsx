@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -13,7 +12,7 @@ import { TrackScout } from '@/components/TrackScout';
 import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
-import { Cpu, Zap, Smartphone, Lightbulb, Trophy } from 'lucide-react';
+import { Cpu, Smartphone, Lightbulb, Trophy } from 'lucide-react';
 
 const leadershipMembers = [
   { name: "Sakshi Maind", role: "Lead" },
@@ -26,7 +25,7 @@ const leadershipMembers = [
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen selection:bg-primary selection:text-black">
+    <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary">
       <div className="noise-overlay" />
       <Loader />
       <CustomCursor />
@@ -35,7 +34,7 @@ export default function Home() {
       <Hero />
 
       {/* About Section */}
-      <section id="about" className="py-20 md:py-40 relative bg-background">
+      <section id="about" className="py-24 md:py-32 relative bg-background">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
             <motion.div
@@ -45,9 +44,9 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <span className="font-code text-primary tracking-[0.4em] uppercase text-xs mb-6 block text-center md:text-left">About HTH INDIA</span>
-              <h2 className="font-headline text-4xl md:text-7xl font-black tracking-tighter mb-8 md:mb-10 leading-none text-center md:text-left">
+              <h2 className="font-headline text-4xl md:text-7xl font-black tracking-tighter mb-8 md:mb-10 leading-none text-center md:text-left text-foreground">
                 ENGINEERING THE <br />
-                <span className="text-white/20">NEXT FRONTIER</span>
+                <span className="text-secondary/30">NEXT FRONTIER</span>
               </h2>
               <div className="space-y-6 md:space-y-8">
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-body text-center md:text-left">
@@ -79,11 +78,11 @@ export default function Home() {
               transition={{ duration: 1.2 }}
               className="relative aspect-square hidden md:block"
             >
-              <div className="absolute inset-0 glass-card rounded-3xl overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                <div className="absolute inset-0 motherboard-grid opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+              <div className="absolute inset-0 glass-card rounded-[2.5rem] overflow-hidden group border-primary/10">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+                <div className="absolute inset-0 motherboard-grid opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
                 
-                <div className="absolute bottom-10 left-10 p-6 glass-card border-white/10 rounded-2xl">
+                <div className="absolute bottom-10 left-10 p-6 glass-card border-black/5 rounded-2xl">
                   <span className="font-code text-[10px] text-muted-foreground block mb-1">DEPT_ETC</span>
                   <span className="font-headline font-black text-xl tracking-tight uppercase text-primary">Suryodaya College</span>
                 </div>
@@ -96,9 +95,9 @@ export default function Home() {
       <Stats />
 
       {/* Tracks Section */}
-      <section id="tracks" className="py-20 md:py-40 bg-background relative overflow-hidden">
+      <section id="tracks" className="py-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <motion.span 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -107,9 +106,9 @@ export default function Home() {
             >
               Specializations
             </motion.span>
-            <h2 className="font-headline text-4xl md:text-8xl font-black tracking-tighter leading-none mb-10">CORE TRACKS</h2>
-            <div className="glass-card p-8 md:p-12 rounded-3xl inline-block border-dashed border-primary/20 bg-primary/5">
-               <p className="font-headline text-xl md:text-3xl font-black text-white/40 tracking-tight uppercase">
+            <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter leading-none mb-10 text-foreground">CORE TRACKS</h2>
+            <div className="glass-card p-12 rounded-3xl inline-block border-dashed border-primary/20 bg-primary/5">
+               <p className="font-headline text-xl md:text-2xl font-black text-foreground/20 tracking-tight uppercase">
                  Official Tracks Coming Soon
                </p>
             </div>
@@ -120,7 +119,7 @@ export default function Home() {
       <Timeline />
 
       {/* Prize Pool Section */}
-      <section id="prizes" className="py-20 md:py-40 bg-[#0B1118]/30 relative border-y border-white/5">
+      <section id="prizes" className="py-24 bg-card/10 relative border-y border-foreground/5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <motion.div
@@ -128,20 +127,20 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <div className="glass-card p-8 md:p-10 rounded-[2.5rem] border-primary/30 bg-primary/10 relative overflow-hidden">
-                <Trophy className="w-16 h-16 md:w-24 md:h-24 text-primary mb-8 animate-bounce" />
-                <h3 className="font-headline text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter">Prizes & Rewards</h3>
+              <div className="glass-card p-10 rounded-[2.5rem] border-primary/20 bg-primary/5 relative overflow-hidden">
+                <Trophy className="w-16 h-16 md:w-20 md:h-20 text-primary mb-8 animate-bounce" />
+                <h3 className="font-headline text-3xl md:text-4xl font-black mb-6 uppercase tracking-tighter text-foreground">Prizes & Rewards</h3>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                  Total Prize Pool <span className="text-white font-black">₹30,000</span> including incubation support.
+                  Total Prize Pool <span className="text-foreground font-black">₹50,000</span> including incubation support.
                 </p>
-                <div className="font-code text-[10px] md:text-xs text-primary font-bold tracking-widest uppercase py-4 border-t border-white/5">
+                <div className="font-code text-[10px] text-primary font-bold tracking-widest uppercase py-4 border-t border-black/5">
                   Announced at closing ceremony
                 </div>
               </div>
             </motion.div>
-            <div className="space-y-6 md:space-y-10 text-center md:text-left">
+            <div className="space-y-6 text-center md:text-left">
                <span className="font-code text-primary tracking-[0.4em] uppercase text-xs block mb-4">Recognition</span>
-               <h2 className="font-headline text-4xl md:text-7xl font-black tracking-tighter uppercase leading-none">REWARDING <br/> INNOVATION</h2>
+               <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none text-foreground">REWARDING <br/> INNOVATION</h2>
                <p className="text-muted-foreground text-lg leading-relaxed max-w-md mx-auto md:mx-0">
                  Winners get access to incubation hubs and expert engineering resources.
                </p>
@@ -151,11 +150,11 @@ export default function Home() {
       </section>
 
       {/* Leadership Section */}
-      <section id="team" className="py-20 md:py-40 bg-background relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
+      <section id="team" className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-20 md:mb-32">
+          <div className="text-center mb-24">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -168,13 +167,13 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-headline text-4xl md:text-8xl font-black tracking-tighter uppercase mb-6"
+              className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-foreground"
             >
               Core Team
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 md:gap-y-24 gap-x-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 md:gap-y-24 gap-x-12">
             {leadershipMembers.map((member, i) => (
               <div 
                 key={i} 
@@ -192,19 +191,19 @@ export default function Home() {
       <Marquee />
 
       {/* CTA Section */}
-      <section className="py-20 md:py-40 bg-background relative overflow-hidden text-center">
+      <section className="py-24 bg-background relative overflow-hidden text-center">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-headline text-4xl md:text-9xl font-black tracking-tighter mb-8 md:mb-12 uppercase leading-none">
+            <h2 className="font-headline text-4xl md:text-8xl font-black tracking-tighter mb-8 md:mb-12 uppercase leading-none text-foreground">
               READY TO <br />
               <span className="text-primary">SOLDER?</span>
             </h2>
             <div className="flex flex-col items-center justify-center gap-6">
-              <MagneticButton className="px-10 py-5 md:px-16 md:py-8 text-lg md:text-xl">
+              <MagneticButton className="px-12 py-6 text-lg">
                 REGISTER NOW
               </MagneticButton>
               <div className="font-code text-[10px] text-muted-foreground tracking-widest uppercase">
@@ -216,22 +215,22 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 md:py-24 border-t border-white/5 bg-[#05070B] relative overflow-hidden">
+      <footer className="py-16 border-t border-foreground/5 bg-card/5 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16 md:mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
                 <Cpu className="text-primary w-6 h-6" />
-                <span className="font-headline font-black text-2xl tracking-tighter uppercase">HTH INDIA</span>
+                <span className="font-headline font-black text-2xl tracking-tighter uppercase text-foreground">HTH INDIA</span>
               </div>
-              <p className="text-muted-foreground text-sm md:text-lg leading-relaxed font-body">
+              <p className="text-muted-foreground text-sm leading-relaxed font-body">
                 Hack The Hardware India - 24-Hour National Hackathon.<br/>
-                <span className="text-white font-bold">Dept. of ETC Engineering</span><br/>
+                <span className="text-foreground font-bold">Dept. of ETC Engineering</span><br/>
                 SCET, Nagpur
               </p>
             </div>
             <div>
-              <h4 className="font-code font-bold mb-6 text-white uppercase tracking-[0.3em] text-[10px]">Links</h4>
+              <h4 className="font-code font-bold mb-6 text-foreground uppercase tracking-[0.3em] text-[10px]">Links</h4>
               <ul className="space-y-3 font-headline text-sm">
                 <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
                 <li><a href="#timeline" className="text-muted-foreground hover:text-primary transition-colors">Timeline</a></li>
@@ -239,11 +238,11 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-code font-bold mb-6 text-white uppercase tracking-[0.3em] text-[10px]">Contact</h4>
+              <h4 className="font-code font-bold mb-6 text-foreground uppercase tracking-[0.3em] text-[10px]">Contact</h4>
               <p className="text-muted-foreground text-xs font-headline uppercase">Nagpur, India</p>
             </div>
           </div>
-          <div className="pt-8 md:pt-12 border-t border-white/5 text-center md:text-left">
+          <div className="pt-8 border-t border-foreground/5 text-center md:text-left">
             <span className="font-code text-[9px] text-muted-foreground uppercase tracking-[0.2em]">© 2026 HTH INDIA. ALL SYSTEMS NOMINAL.</span>
           </div>
         </div>
