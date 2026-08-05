@@ -310,8 +310,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <Cpu className="text-primary w-6 h-6" />
-                <span className="font-headline font-black text-2xl tracking-tighter uppercase text-foreground">HTH INDIA 2.0</span>
+                <Image 
+                  src="/logo1.PNG" 
+                  alt="HTH INDIA Logo" 
+                  width={140} 
+                  height={40} 
+                  className="h-10 w-auto object-contain"
+                />
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed font-body">
                 Hack The Hardware India 2.0 - 24-Hour National Hackathon.<br/>
