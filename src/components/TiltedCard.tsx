@@ -2,7 +2,7 @@
 "use client"
 
 import { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import './TiltedCard.css';
 
 const springValues = {
@@ -41,13 +41,14 @@ export default function TiltedCard({
   displayOverlayContent?: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useSpring(useMotionValue(0), springValues);
   const rotateY = useSpring(useMotionValue(0), springValues);
   const scale = useSpring(1, springValues);
-  const opacity = useSpring(0);
+  const tooltipOpacity = useSpring(0);
   const rotateFigcaption = useSpring(0, {
     stiffness: 350,
     damping: 30,
@@ -78,12 +79,14 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
+    setIsHovered(true);
     scale.set(scaleOnHover);
-    opacity.set(1);
+    tooltipOpacity.set(1);
   }
 
   function handleMouseLeave() {
-    opacity.set(0);
+    setIsHovered(false);
+    tooltipOpacity.set(0);
     scale.set(1);
     rotateX.set(0);
     rotateY.set(0);
@@ -127,7 +130,14 @@ export default function TiltedCard({
         />
 
         {displayOverlayContent && overlayContent && (
-          <motion.div className="tilted-card-overlay">{overlayContent}</motion.div>
+          <motion.div 
+            className="tilted-card-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0.4 }}
+            transition={{ duration: 0.3 }}
+          >
+            {overlayContent}
+          </motion.div>
         )}
       </motion.div>
 
@@ -137,7 +147,7 @@ export default function TiltedCard({
           style={{
             x,
             y,
-            opacity,
+            opacity: tooltipOpacity,
             rotate: rotateFigcaption
           }}
         >
