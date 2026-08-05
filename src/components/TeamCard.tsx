@@ -15,7 +15,7 @@ interface TeamCardProps {
   role?: string;
 }
 
-export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardProps) => {
+export const TeamCard = ({ name, index, linkedin, instagram, image, role }: TeamCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -38,9 +38,12 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
         displayOverlayContent={true}
         overlayContent={
           <div className="flex flex-col gap-2 pointer-events-auto">
-            <h3 className="font-headline text-sm font-bold text-white tracking-tight uppercase leading-tight mb-2">
+            <h3 className="font-headline text-sm font-bold text-white tracking-tight uppercase leading-tight">
               {name}
             </h3>
+            <p className="text-[10px] font-code text-primary-foreground/80 uppercase tracking-widest mb-2">
+              {role}
+            </p>
             <div className="flex gap-2">
               {linkedin && linkedin !== "#" && (
                 <a

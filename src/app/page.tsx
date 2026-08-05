@@ -17,6 +17,30 @@ import FluidGlass from '@/components/FluidGlass';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
 
+const facultySupport = [
+  { 
+    name: "Dr. Rasika Chafle", 
+    role: "Faculty Coordinator", 
+    linkedin: "https://www.linkedin.com/in/dr-rasika-chafle-1090bb1a9", 
+    instagram: "https://www.instagram.com/rasika_manapure", 
+    image: "/leads/rasika.png" 
+  },
+  { 
+    name: "Prof. Damini Tonde", 
+    role: "Faculty Advisor", 
+    linkedin: "https://www.linkedin.com/in/damini-tonde-273171276", 
+    instagram: "https://www.instagram.com/daminidandade", 
+    image: "/leads/damini.png" 
+  },
+  { 
+    name: "Prof. Smita Matte", 
+    role: "Faculty Advisor", 
+    linkedin: "#", 
+    instagram: "#", 
+    image: "/leads/smita.png" 
+  },
+];
+
 const leadershipMembers = [
   { name: "Sakshi Maind", role: "Lead", linkedin: "#", instagram: "#", image: "/leads/sakshi.PNG" },
   { name: "Manish Wanjari", role: "Co-Lead", linkedin: "#", instagram: "#", image: "/leads/manish.PNG" },
@@ -228,6 +252,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Faculty Support Section */}
+      <section id="faculty" className="py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-code text-primary tracking-[0.4em] uppercase text-xs block mb-4"
+            >
+              The Academic Mentors
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-headline text-3xl md:text-5xl font-black tracking-tighter uppercase mb-12 text-foreground"
+            >
+              Faculty Support
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto justify-items-center">
+            {facultySupport.map((member, i) => (
+              <TeamCard 
+                key={i}
+                index={i} 
+                name={member.name} 
+                role={member.role} 
+                linkedin={member.linkedin} 
+                instagram={member.instagram} 
+                image={member.image}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Leadership Section */}
       <section id="team" className="py-24 bg-background relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
@@ -340,3 +402,4 @@ export default function Home() {
     </main>
   );
 }
+
