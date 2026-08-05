@@ -12,7 +12,7 @@ const links = [
   { name: 'ABOUT', href: '#about' },
   { name: 'TIMELINE', href: '#timeline' },
   { name: 'TRACKS', href: '#tracks' },
-  { name: 'AI SCOUT', href: '#scout' },
+  { name: 'TEAM', href: '#team' },
 ];
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";

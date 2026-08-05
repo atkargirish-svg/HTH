@@ -9,7 +9,6 @@ import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
 import { Timeline } from '@/components/Timeline';
-import { TrackScout } from '@/components/TrackScout';
 import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
@@ -202,14 +201,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sponsors Preview above Stats */}
-      <div className="py-12 border-t border-foreground/5 bg-background overflow-hidden">
+      {/* Sponsors Loop above Stats */}
+      <div className="py-12 border-t border-foreground/5 bg-background">
         <LogoLoop 
           logos={techLogos}
-          speed={60}
+          speed={120}
           direction="left"
           logoHeight={48}
-          gap={64}
+          gap={32}
           fadeOut
           fadeOutColor="hsl(var(--background))"
           scaleOnHover
@@ -382,8 +381,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <TrackScout />
 
       <Marquee />
 
