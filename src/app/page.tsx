@@ -24,6 +24,8 @@ const leadershipMembers = [
   { name: "Atharva Atkar", role: "Technical Head" },
 ];
 
+const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
+
 export default function Home() {
   return (
     <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary">
@@ -84,7 +86,7 @@ export default function Home() {
                   src="/college.png" 
                   alt="Suryodaya College" 
                   fill 
-                  className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" 
+                  className="object-cover opacity-100 group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
                 <div className="absolute inset-0 motherboard-grid opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
@@ -210,11 +212,14 @@ export default function Home() {
               <span className="text-primary">SOLDER?</span>
             </h2>
             <div className="flex flex-col items-center justify-center gap-6">
-              <MagneticButton className="px-12 py-6 text-lg">
+              <MagneticButton 
+                onClick={() => window.open(REGISTRATION_URL, "_blank")}
+                className="px-12 py-6 text-lg"
+              >
                 REGISTER NOW
               </MagneticButton>
-              <div className="font-code text-[10px] text-muted-foreground tracking-widest uppercase">
-                Status: Coming Soon
+              <div className="font-code text-[10px] text-primary tracking-widest uppercase font-bold">
+                Status: Applications Open
               </div>
             </div>
           </motion.div>

@@ -13,6 +13,8 @@ const links = [
   { name: 'AI SCOUT', href: '#scout' },
 ];
 
+const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
+
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -55,7 +57,10 @@ export const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            <MagneticButton className="px-6 py-2 text-[10px] tracking-widest">
+            <MagneticButton 
+              onClick={() => window.open(REGISTRATION_URL, "_blank")}
+              className="px-6 py-2 text-[10px] tracking-widest"
+            >
               REGISTER
             </MagneticButton>
           </div>
@@ -99,7 +104,13 @@ export const Navbar = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <MagneticButton className="mt-8 text-lg px-10 py-5">
+              <MagneticButton 
+                onClick={() => {
+                  window.open(REGISTRATION_URL, "_blank");
+                  setMobileMenu(false);
+                }}
+                className="mt-8 text-lg px-10 py-5"
+              >
                 REGISTER NOW
               </MagneticButton>
             </motion.div>

@@ -6,6 +6,8 @@ import { MagneticButton } from './MagneticButton';
 import { Cpu, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
+const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
+
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +29,7 @@ export const Hero = () => {
           <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">24-Hour National Hardware Hackathon</span>
         </motion.div>
 
-        {/* Logo Image replacing the HTH INDIA text */}
+        {/* Logo Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,16 +46,6 @@ export const Hero = () => {
           />
         </motion.div>
 
-        <motion.span 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.6, duration: 1 }}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-secondary block font-headline text-2xl md:text-5xl font-black tracking-tighter mb-8"
-        >
-          
-      
-        </motion.span>
-
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +61,10 @@ export const Hero = () => {
           transition={{ delay: 2, duration: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
         >
-          <MagneticButton className="w-full sm:w-auto px-12 py-5 text-base">
+          <MagneticButton 
+            onClick={() => window.open(REGISTRATION_URL, "_blank")}
+            className="w-full sm:w-auto px-12 py-5 text-base"
+          >
             REGISTER NOW
           </MagneticButton>
           <MagneticButton variant="outline" className="w-full sm:w-auto px-12 py-5 text-base">
