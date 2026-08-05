@@ -8,6 +8,7 @@ import { Cpu, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
+const INSTA_URL = "https://www.instagram.com/suryodayacollege?igsh=MWVlYXowbmV1cThjdg==";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,7 +31,6 @@ export const Hero = () => {
           <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">HTH INDIA 2.0 • PAN-Level Innovation</span>
         </motion.div>
 
-        {/* Home Page Main Logo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,8 +68,12 @@ export const Hero = () => {
           >
             REGISTER NOW
           </MagneticButton>
-          <MagneticButton variant="outline" className="w-full sm:w-auto px-12 py-5 text-base">
-            BROCHURE
+          <MagneticButton 
+            variant="outline" 
+            onClick={() => window.open(INSTA_URL, "_blank")}
+            className="w-full sm:w-auto px-12 py-5 text-base"
+          >
+            INSTAGRAM
           </MagneticButton>
         </motion.div>
 
