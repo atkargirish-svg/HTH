@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useRef } from 'react';
@@ -13,26 +14,68 @@ const INSTA_URL = "https://www.instagram.com/suryodayacollege?igsh=MWVlYXowbmV1c
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Animations start after the loader (approx 3s)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 3.2,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    }
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, scale: 0.8, filter: "blur(20px)" },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      filter: "blur(0px)",
+      transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] } 
+    }
+  };
+
   return (
     <section ref={containerRef} className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <ShapeGrid 
-          speed={0.56} 
-          squareSize={37} 
-          direction='diagonal' 
-          borderColor="rgba(0,0,0,0.3)" 
-          hoverFillColor='rgba(164,31,19,0.05)' 
-          shape='hexagon' 
-          hoverTrailAmount={5} 
-        />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.25 }}
+          transition={{ delay: 3, duration: 2 }}
+          className="absolute inset-0"
+        >
+          <ShapeGrid 
+            speed={0.4} 
+            squareSize={37} 
+            direction='diagonal' 
+            borderColor="rgba(0,0,0,0.6)" 
+            hoverFillColor='rgba(164,31,19,0.08)' 
+            shape='hexagon' 
+            hoverTrailAmount={5} 
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 text-center">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="container relative z-10 mx-auto px-6 text-center"
+      >
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          variants={itemVariants}
           className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12 cursor-target"
         >
           <Cpu className="w-3 h-3 md:w-4 md:h-4" />
@@ -40,9 +83,7 @@ export const Hero = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 1.2, ease: "easeOut" }}
+          variants={logoVariants}
           className="relative w-full max-w-[320px] md:max-w-[750px] mx-auto mb-4 md:mb-6"
         >
           <Image 
@@ -56,18 +97,14 @@ export const Hero = () => {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1 }}
+          variants={itemVariants}
           className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed font-body"
         >
           HTH 2.0 is a 24-hour national hardware hackathon where students build functional prototypes to bridge the gap between academic learning and industrial engineering.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 1 }}
+          variants={itemVariants}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
         >
           <MagneticButton 
@@ -86,9 +123,7 @@ export const Hero = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1.5 }}
+          variants={itemVariants}
           className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto pt-8 border-t border-foreground/5"
         >
           <div className="flex flex-col gap-1 items-center">
@@ -108,11 +143,12 @@ export const Hero = () => {
             <span className="font-headline font-bold text-sm md:text-lg text-primary uppercase">Active</span>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 5, duration: 2, repeat: Infinity }}
         className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground/30"
       >
         <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
