@@ -10,9 +10,10 @@ interface MagneticButtonProps {
   className?: string;
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-export const MagneticButton = ({ children, className, variant = 'primary', onClick }: MagneticButtonProps) => {
+export const MagneticButton = ({ children, className, variant = 'primary', onClick, disabled }: MagneticButtonProps) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -44,8 +45,9 @@ export const MagneticButton = ({ children, className, variant = 'primary', onCli
       animate={{ x: position.x, y: position.y }}
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
       onClick={onClick}
+      disabled={disabled}
       className={cn(
-        "relative px-8 py-3 rounded-full font-headline font-bold transition-colors duration-200 group flex items-center gap-2",
+        "relative px-8 py-3 rounded-full font-headline font-bold transition-colors duration-200 group flex items-center gap-2 cursor-target disabled:opacity-50 disabled:cursor-not-allowed",
         variants[variant],
         className
       )}

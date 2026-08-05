@@ -4,7 +4,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Loader } from '@/components/Loader';
-import { CustomCursor } from '@/components/CustomCursor';
+import TargetCursor from '@/components/TargetCursor';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
@@ -95,7 +95,12 @@ export default function Home() {
     <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary">
       <div className="noise-overlay" />
       <Loader />
-      <CustomCursor />
+      <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor={true}
+        parallaxOn={true}
+        cursorColor="hsl(var(--primary))"
+      />
       <Navbar />
 
       <Hero />
@@ -143,7 +148,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-              className="relative aspect-video hidden md:block"
+              className="relative aspect-video hidden md:block cursor-target"
             >
               <div className="absolute inset-0 glass-card rounded-[2.5rem] overflow-hidden group border-primary/10">
                 <FluidGlass imagePlaceholder="/college.png" />
@@ -189,7 +194,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-8 rounded-3xl hover:border-primary/40 transition-all group"
+                className="glass-card p-8 rounded-3xl hover:border-primary/40 transition-all group cursor-target"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                   {domain.icon}
@@ -214,7 +219,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Runner Up 1 */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-8 rounded-[2.5rem] border-secondary/20 order-2 md:order-1">
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-8 rounded-[2.5rem] border-secondary/20 order-2 md:order-1 cursor-target">
               <Trophy className="w-12 h-12 text-secondary mb-6" />
               <h3 className="font-headline text-2xl font-black mb-2 uppercase">Runner-Up</h3>
               <div className="text-3xl font-black text-foreground mb-4">₹7,000</div>
@@ -226,7 +231,7 @@ export default function Home() {
             </motion.div>
 
             {/* 1st Winner */}
-            <motion.div initial={{ opacity: 0, scale: 1.05 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-10 rounded-[2.5rem] border-primary/40 bg-primary/5 relative overflow-hidden order-1 md:order-2">
+            <motion.div initial={{ opacity: 0, scale: 1.05 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-10 rounded-[2.5rem] border-primary/40 bg-primary/5 relative overflow-hidden order-1 md:order-2 cursor-target">
               <div className="absolute top-0 right-0 bg-primary text-white text-[8px] font-code font-bold px-4 py-1 rounded-bl-xl tracking-widest">PLATINUM</div>
               <Trophy className="w-16 h-16 text-primary mb-6 animate-bounce" />
               <h3 className="font-headline text-3xl font-black mb-2 uppercase">Winner</h3>
@@ -239,7 +244,7 @@ export default function Home() {
             </motion.div>
 
             {/* 2nd Runner Up */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-8 rounded-[2.5rem] border-secondary/20 order-3">
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-8 rounded-[2.5rem] border-secondary/20 order-3 cursor-target">
               <Trophy className="w-12 h-12 text-secondary/60 mb-6" />
               <h3 className="font-headline text-2xl font-black mb-2 uppercase tracking-tight">2nd Runner-Up</h3>
               <div className="text-3xl font-black text-foreground mb-4">₹4,000</div>
@@ -277,14 +282,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto justify-items-center">
             {facultySupport.map((member, i) => (
-              <TeamCard 
-                key={i}
-                index={i} 
-                name={member.name} 
-                linkedin={member.linkedin} 
-                instagram={member.instagram} 
-                image={member.image}
-              />
+              <div key={i} className="cursor-target w-full">
+                <TeamCard 
+                  index={i} 
+                  name={member.name} 
+                  linkedin={member.linkedin} 
+                  instagram={member.instagram} 
+                  image={member.image}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -316,14 +322,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto justify-items-center">
             {leadershipMembers.map((member, i) => (
-              <TeamCard 
-                key={i}
-                index={i} 
-                name={member.name} 
-                linkedin={member.linkedin} 
-                instagram={member.instagram} 
-                image={member.image}
-              />
+              <div key={i} className="cursor-target w-full">
+                <TeamCard 
+                  index={i} 
+                  name={member.name} 
+                  linkedin={member.linkedin} 
+                  instagram={member.instagram} 
+                  image={member.image}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -348,7 +355,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center gap-6">
               <MagneticButton 
                 onClick={() => window.open(REGISTRATION_URL, "_blank")}
-                className="px-12 py-6 text-lg"
+                className="px-12 py-6 text-lg cursor-target"
               >
                 REGISTER NOW
               </MagneticButton>
@@ -383,9 +390,9 @@ export default function Home() {
             <div>
               <h4 className="font-code font-bold mb-6 text-foreground uppercase tracking-[0.3em] text-[10px]">Links</h4>
               <ul className="space-y-3 font-headline text-sm">
-                <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
-                <li><a href="#timeline" className="text-muted-foreground hover:text-primary transition-colors">Timeline</a></li>
-                <li><a href="#team" className="text-muted-foreground hover:text-primary transition-colors">Team</a></li>
+                <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors cursor-target">About</a></li>
+                <li><a href="#timeline" className="text-muted-foreground hover:text-primary transition-colors cursor-target">Timeline</a></li>
+                <li><a href="#team" className="text-muted-foreground hover:text-primary transition-colors cursor-target">Team</a></li>
               </ul>
             </div>
             <div>

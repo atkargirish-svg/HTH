@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState } from 'react';
@@ -46,7 +47,7 @@ export const TrackScout = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7">
-              <div className="glass-card p-1 rounded-2xl group transition-all duration-500 hover:border-primary/20">
+              <div className="glass-card p-1 rounded-2xl group transition-all duration-500 hover:border-primary/20 cursor-target">
                 <div className="bg-background/40 rounded-[15px] p-6 md:p-8">
                   <div className="flex items-center gap-3 mb-6 border-b border-black/5 pb-4">
                     <Terminal className="w-4 h-4 text-muted-foreground" />
@@ -56,7 +57,7 @@ export const TrackScout = () => {
                     value={summary}
                     onChange={(e) => setSummary(e.target.value)}
                     placeholder="Describe your hardware project... (e.g., FPGA-based drone image processor)"
-                    className="w-full h-40 bg-transparent border-none focus:ring-0 text-xl font-headline resize-none placeholder:text-foreground/10 text-foreground"
+                    className="w-full h-40 bg-transparent border-none focus:ring-0 text-xl font-headline resize-none placeholder:text-foreground/10 text-foreground cursor-target"
                   />
                   <div className="flex flex-col sm:flex-row justify-between items-center mt-6 border-t border-black/5 pt-6 gap-4">
                     <span className="text-[9px] font-code text-muted-foreground uppercase tracking-widest">
@@ -64,7 +65,7 @@ export const TrackScout = () => {
                     </span>
                     <MagneticButton 
                       onClick={handleScout} 
-                      className="min-w-[200px]"
+                      className="min-w-[200px] cursor-target"
                       disabled={isLoading || !summary.trim()}
                     >
                       {isLoading ? (
@@ -93,7 +94,7 @@ export const TrackScout = () => {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="space-y-6"
                   >
-                    <div className="glass-card p-8 rounded-2xl border-primary/20 bg-primary/5">
+                    <div className="glass-card p-8 rounded-2xl border-primary/20 bg-primary/5 cursor-target">
                       <div className="flex items-center gap-4 mb-8">
                         <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
                           <Cpu className="w-5 h-5" />
@@ -109,7 +110,7 @@ export const TrackScout = () => {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: i * 0.1 }}
                               key={i}
-                              className="px-4 py-2 rounded-lg bg-background border border-foreground/5 text-[10px] font-code text-primary font-bold"
+                              className="px-4 py-2 rounded-lg bg-background border border-foreground/5 text-[10px] font-code text-primary font-bold cursor-target"
                             >
                               {track}
                             </motion.span>
@@ -124,7 +125,7 @@ export const TrackScout = () => {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: i * 0.1 }}
                               key={i}
-                              className="px-4 py-2 rounded-lg bg-background border border-foreground/5 text-[10px] font-code text-secondary font-bold"
+                              className="px-4 py-2 rounded-lg bg-background border border-foreground/5 text-[10px] font-code text-secondary font-bold cursor-target"
                             >
                               {cat}
                             </motion.span>

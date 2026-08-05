@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect } from 'react';
@@ -43,7 +44,7 @@ export const Navbar = () => {
               alt="HTH INDIA Logo" 
               width={140} 
               height={40} 
-              className="h-8 md:h-10 w-auto object-contain"
+              className="h-8 md:h-10 w-auto object-contain cursor-target"
               priority
             />
           </div>
@@ -53,7 +54,7 @@ export const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-code text-[11px] font-bold tracking-widest text-muted-foreground hover:text-primary transition-all duration-300 relative group"
+                className="font-code text-[11px] font-bold tracking-widest text-muted-foreground hover:text-primary transition-all duration-300 relative group cursor-target"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
@@ -61,14 +62,14 @@ export const Navbar = () => {
             ))}
             <MagneticButton 
               onClick={() => window.open(REGISTRATION_URL, "_blank")}
-              className="px-6 py-2 text-[10px] tracking-widest"
+              className="px-6 py-2 text-[10px] tracking-widest cursor-target"
             >
               REGISTER
             </MagneticButton>
           </div>
 
           <button 
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2 cursor-target"
             onClick={() => setMobileMenu(!mobileMenu)}
           >
             {mobileMenu ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -101,7 +102,7 @@ export const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 onClick={() => setMobileMenu(false)}
-                className="font-headline text-4xl font-bold text-foreground hover:text-primary transition-colors tracking-tighter"
+                className="font-headline text-4xl font-bold text-foreground hover:text-primary transition-colors tracking-tighter cursor-target"
               >
                 {link.name}
               </motion.a>
@@ -116,7 +117,7 @@ export const Navbar = () => {
                   window.open(REGISTRATION_URL, "_blank");
                   setMobileMenu(false);
                 }}
-                className="mt-8 text-lg px-10 py-5"
+                className="mt-8 text-lg px-10 py-5 cursor-target"
               >
                 REGISTER NOW
               </MagneticButton>
