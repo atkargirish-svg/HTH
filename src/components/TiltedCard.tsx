@@ -1,8 +1,7 @@
-
 "use client"
 
-import { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './TiltedCard.css';
 
 const springValues = {
@@ -42,6 +41,14 @@ export default function TiltedCard({
 }) {
   const ref = useRef<HTMLElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 768);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -58,7 +65,7 @@ export default function TiltedCard({
   const [lastY, setLastY] = useState(0);
 
   function handleMouse(e: React.MouseEvent) {
-    if (!ref.current) return;
+    if (!ref.current || !isDesktop) return;
 
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
@@ -80,7 +87,7 @@ export default function TiltedCard({
 
   function handleMouseEnter() {
     setIsHovered(true);
-    scale.set(scaleOnHover);
+    scale.set(!isDesktop ? 1.02 : scaleOnHover);
     tooltipOpacity.set(1);
   }
 
@@ -99,20 +106,22 @@ export default function TiltedCard({
       className="tilted-card-figure"
       style={{
         height: containerHeight,
-        width: containerWidth
+        width: '100%',
+        maxWidth: containerWidth
       }}
       onMouseMove={handleMouse}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {showMobileWarning && (
+      {showMobileWarning && !isDesktop && (
         <div className="tilted-card-mobile-alert">This effect is not optimized for mobile.</div>
       )}
 
       <motion.div
         className="tilted-card-inner"
         style={{
-          width: imageWidth,
+          width: '100%',
+          maxWidth: imageWidth,
           height: imageHeight,
           rotateX,
           rotateY,
@@ -124,7 +133,7 @@ export default function TiltedCard({
           alt={altText}
           className="tilted-card-img"
           style={{
-            width: imageWidth,
+            width: '100%',
             height: imageHeight
           }}
         />
@@ -133,7 +142,7 @@ export default function TiltedCard({
           <motion.div 
             className="tilted-card-overlay"
             initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0.4 }}
+            animate={{ opacity: isHovered ? 1 : 0.6 }}
             transition={{ duration: 0.3 }}
           >
             {overlayContent}
@@ -141,7 +150,7 @@ export default function TiltedCard({
         )}
       </motion.div>
 
-      {showTooltip && (
+      {showTooltip && isDesktop && (
         <motion.figcaption
           className="tilted-card-caption"
           style={{

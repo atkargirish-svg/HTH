@@ -40,8 +40,13 @@
   * {
     @apply border-border selection:bg-primary/20 selection:text-primary;
   }
+  html, body {
+    @apply overflow-x-hidden max-w-full;
+    position: relative;
+    width: 100%;
+  }
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden font-body;
+    @apply bg-background text-foreground antialiased font-body;
     background-image: 
       radial-gradient(circle at 50% -20%, hsl(var(--primary) / 0.05), transparent 70%),
       radial-gradient(circle at 0% 40%, hsl(var(--secondary) / 0.03), transparent 50%),
@@ -111,4 +116,14 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary));
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

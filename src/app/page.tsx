@@ -1,7 +1,7 @@
-
 "use client"
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { Loader } from '@/components/Loader';
 import TargetCursor from '@/components/TargetCursor';
@@ -14,9 +14,14 @@ import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
 import LogoLoop from '@/components/LogoLoop';
-import CircularGallery from '@/components/CircularGallery';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
+
+// Dynamically import CircularGallery to prevent SSR issues with WebGL/OGL
+const CircularGallery = dynamic(() => import('@/components/CircularGallery'), {
+  ssr: false,
+  loading: () => <div className="h-[400px] md:h-[600px] w-full bg-card/5 animate-pulse rounded-3xl" />
+});
 
 const highlights2k25 = [
   { image: '/2k25/d1.png', text: 'INNOVATION HUB' },
@@ -139,7 +144,7 @@ const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-in
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary">
+    <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary overflow-x-hidden">
       <div className="noise-overlay" />
       <Loader />
       <TargetCursor 
@@ -153,7 +158,7 @@ export default function Home() {
       <Hero />
 
       {/* About Section */}
-      <section id="about" className="py-24 md:py-32 relative bg-background">
+      <section id="about" className="py-24 md:py-32 relative bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
             <motion.div
@@ -212,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors Loop */}
-      <div className="py-12 border-t border-foreground/5 bg-background">
+      <div className="py-12 border-t border-foreground/5 bg-background overflow-hidden">
         <LogoLoop 
           logos={techLogos}
           speed={120}
@@ -276,7 +281,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div style={{ height: '600px', position: 'relative' }} className="cursor-target">
+        <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden cursor-target">
           <CircularGallery
             items={highlights2k25}
             bend={3}
