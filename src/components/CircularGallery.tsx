@@ -323,12 +323,28 @@ class Media {
       },
       transparent: true
     });
+
     const img = new (window as any).Image();
-    img.crossOrigin = 'anonymous';
+    if (this.image.startsWith('http')) {
+      img.crossOrigin = 'anonymous';
+    }
     img.src = this.image;
     img.onload = () => {
-      texture.image = img;
-      this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+      if (img.decode) {
+        img.decode().then(() => {
+          texture.image = img;
+          texture.needsUpdate = true;
+          this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+        }).catch(() => {
+          texture.image = img;
+          texture.needsUpdate = true;
+          this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+        });
+      } else {
+        texture.image = img;
+        texture.needsUpdate = true;
+        this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+      }
     };
   }
   createMesh() {
@@ -401,10 +417,9 @@ class Media {
     this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
     this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
     
-    // Scale down for small screens
     if (this.screen.width < 768) {
-      this.plane.scale.y *= 0.7;
-      this.plane.scale.x *= 0.7;
+      this.plane.scale.y *= 0.65;
+      this.plane.scale.x *= 0.65;
     }
 
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
