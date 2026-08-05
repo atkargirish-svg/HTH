@@ -30,7 +30,7 @@ export const Hero = () => {
           <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">HTH INDIA 2.0 • PAN-Level Innovation</span>
         </motion.div>
 
-        {/* Logo Image */}
+        {/* Home Page Main Logo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export const Hero = () => {
         >
           <Image 
             src="/home.png" 
-            alt="HTH INDIA Logo" 
+            alt="HTH INDIA Home Logo" 
             width={1000} 
             height={400} 
             priority
