@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useRef } from 'react';
@@ -6,6 +5,7 @@ import { motion } from 'framer-motion';
 import { MagneticButton } from './MagneticButton';
 import { Cpu, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import ShapeGrid from './ShapeGrid';
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
 const INSTA_URL = "https://www.instagram.com/suryodayacollege?igsh=MWVlYXowbmV1cThjdg==";
@@ -15,8 +15,16 @@ export const Hero = () => {
 
   return (
     <section ref={containerRef} className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 motherboard-grid" />
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <ShapeGrid 
+          speed={0.56} 
+          squareSize={37} 
+          direction='diagonal' 
+          borderColor="rgba(0,0,0,0.1)" 
+          hoverFillColor='rgba(164,31,19,0.05)' 
+          shape='hexagon' 
+          hoverTrailAmount={5} 
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
       </div>
 
