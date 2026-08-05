@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -15,6 +14,7 @@ import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
 import { SponsorScroll } from '@/components/SponsorScroll';
+import LogoLoop from '@/components/LogoLoop';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
 
@@ -86,6 +86,14 @@ const domains = [
     desc: "Interdisciplinary hardware projects addressing any real-world challenge.",
     icon: <Lightbulb className="w-6 h-6" />
   }
+];
+
+const techLogos = [
+  { src: "/sponser/1.png", alt: "Sponsor 1" },
+  { src: "/sponser/2.png", alt: "Sponsor 2" },
+  { src: "/sponser/3.png", alt: "Sponsor 3" },
+  { src: "/sponser/4.png", alt: "Sponsor 4" },
+  { src: "/sponser/5.png", alt: "Sponsor 5" },
 ];
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
@@ -165,8 +173,17 @@ export default function Home() {
       </section>
 
       {/* Sponsors Preview above Stats */}
-      <div className="py-12 border-t border-foreground/5 bg-background">
-        <SponsorScroll />
+      <div className="py-12 border-t border-foreground/5 bg-background overflow-hidden">
+        <LogoLoop 
+          logos={techLogos}
+          speed={60}
+          direction="left"
+          logoHeight={48}
+          gap={64}
+          fadeOut
+          fadeOutColor="hsl(var(--background))"
+          scaleOnHover
+        />
       </div>
 
       <Stats />
