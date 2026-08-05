@@ -14,6 +14,7 @@ import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
 import LogoLoop from '@/components/LogoLoop';
+import PixelCard from '@/components/PixelCard';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
 
@@ -144,7 +145,7 @@ const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-in
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary overflow-x-hidden">
+    <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary overflow-x-hidden max-w-full">
       <div className="noise-overlay" />
       <Loader />
       <TargetCursor 
@@ -255,13 +256,19 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-8 rounded-3xl hover:border-primary/40 transition-all group cursor-target"
+                className="cursor-target h-[300px] md:h-[350px]"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  {domain.icon}
-                </div>
-                <h3 className="font-headline font-black text-xl mb-4 tracking-tight uppercase">{domain.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{domain.desc}</p>
+                <PixelCard variant="hth" className="w-full h-full">
+                  <div className="p-8 flex flex-col justify-between h-full text-left">
+                    <div>
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        {domain.icon}
+                      </div>
+                      <h3 className="font-headline font-black text-xl mb-4 tracking-tight uppercase">{domain.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{domain.desc}</p>
+                    </div>
+                  </div>
+                </PixelCard>
               </motion.div>
             ))}
           </div>
