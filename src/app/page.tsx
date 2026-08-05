@@ -164,9 +164,9 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <motion.span 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="font-code text-primary tracking-[0.4em] uppercase text-xs block mb-4"
@@ -174,30 +174,26 @@ export default function Home() {
               The Visionaries
             </motion.span>
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-foreground"
+              className="font-headline text-3xl md:text-5xl font-black tracking-tighter uppercase mb-12 text-foreground"
             >
               Meet The Core Team
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 md:gap-y-24 gap-x-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto">
             {leadershipMembers.map((member, i) => (
-              <div 
-                key={i} 
-                className={`${i % 2 === 0 ? 'lg:translate-y-12' : 'lg:-translate-y-12'} transition-transform duration-1000`}
-              >
-                <TeamCard 
-                  index={i} 
-                  name={member.name} 
-                  role={member.role} 
-                  linkedin={member.linkedin} 
-                  instagram={member.instagram} 
-                  image={member.image}
-                />
-              </div>
+              <TeamCard 
+                key={i}
+                index={i} 
+                name={member.name} 
+                role={member.role} 
+                linkedin={member.linkedin} 
+                instagram={member.instagram} 
+                image={member.image}
+              />
             ))}
           </div>
         </div>

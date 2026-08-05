@@ -25,8 +25,8 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -49,14 +49,14 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group"
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.6, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+      className="relative group w-full max-w-[280px] mx-auto"
     >
       {/* Background Glow */}
-      <div className="absolute -inset-4 bg-primary/20 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute -inset-2 bg-primary/15 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <motion.div
         ref={cardRef}
@@ -69,12 +69,12 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
           transformStyle: "preserve-3d",
         }}
         animate={{
-          y: isHovered ? -10 : [0, -5, 0],
+          y: isHovered ? -8 : 0,
         }}
         transition={{
-          y: isHovered ? { type: "spring", stiffness: 100 } : { duration: 5, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }
+          y: { type: "spring", stiffness: 100, damping: 10 }
         }}
-        className="relative w-full aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-foreground/5 glass-card"
+        className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-foreground/5 glass-card shadow-sm"
       >
         {/* Full Card Image */}
         {image && (
@@ -82,24 +82,23 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
             src={image} 
             alt={name} 
             fill 
-            className="object-cover transition-transform duration-1000 group-hover:scale-110"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
             priority
           />
         )}
 
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-        <div className="absolute inset-0 motherboard-grid opacity-[0.05] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+        <div className="absolute inset-0 motherboard-grid opacity-[0.03] pointer-events-none" />
 
         {/* Content */}
         <div 
-          className="absolute inset-0 flex flex-col justify-end p-8"
-          style={{ transform: "translateZ(50px)" }}
+          className="absolute inset-0 flex flex-col justify-end p-5"
+          style={{ transform: "translateZ(40px)" }}
         >
           <div className="relative z-10">
             <motion.h3 
-              animate={{ y: isHovered ? -5 : 0 }}
-              className="font-headline text-2xl md:text-3xl font-black text-white mb-4 tracking-tighter uppercase leading-none"
+              className="font-headline text-lg md:text-xl font-bold text-white mb-3 tracking-tight uppercase leading-none"
             >
               {name}
             </motion.h3>
@@ -107,19 +106,19 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
             <AnimatePresence>
               {isHovered && (
                 <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="flex gap-4"
+                  exit={{ opacity: 0, y: 5 }}
+                  className="flex gap-3"
                 >
                   {linkedin && (
                     <a
                       href={linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300"
+                      className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-200"
                     >
-                      <Linkedin className="w-5 h-5" />
+                      <Linkedin className="w-4 h-4" />
                     </a>
                   )}
                   {instagram && (
@@ -127,9 +126,9 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
                       href={instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300"
+                      className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-200"
                     >
-                      <Instagram className="w-5 h-5" />
+                      <Instagram className="w-4 h-4" />
                     </a>
                   )}
                 </motion.div>
@@ -139,8 +138,8 @@ export const TeamCard = ({ name, index, linkedin, instagram, image }: TeamCardPr
         </div>
 
         {/* Decorative corner accent */}
-        <div className="absolute top-6 right-6 opacity-40">
-          <div className="w-12 h-12 border-t-2 border-r-2 border-primary/50 rounded-tr-xl" />
+        <div className="absolute top-4 right-4 opacity-30">
+          <div className="w-8 h-8 border-t border-r border-primary/40 rounded-tr-lg" />
         </div>
       </motion.div>
     </motion.div>
