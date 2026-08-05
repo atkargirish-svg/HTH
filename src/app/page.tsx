@@ -13,6 +13,7 @@ import { TrackScout } from '@/components/TrackScout';
 import { Marquee } from '@/components/Marquee';
 import { MagneticButton } from '@/components/MagneticButton';
 import { TeamCard } from '@/components/TeamCard';
+import FluidGlass from '@/components/FluidGlass';
 import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
 
@@ -125,16 +126,10 @@ export default function Home() {
               className="relative aspect-video hidden md:block"
             >
               <div className="absolute inset-0 glass-card rounded-[2.5rem] overflow-hidden group border-primary/10">
-                <Image 
-                  src="/college.png" 
-                  alt="Suryodaya College" 
-                  fill 
-                  className="object-cover opacity-100 group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-                <div className="absolute inset-0 motherboard-grid opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
+                <FluidGlass imagePlaceholder="/college.png" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-primary/5 to-transparent" />
                 
-                <div className="absolute bottom-6 right-6 p-4 glass-card border-black/5 rounded-2xl">
+                <div className="absolute bottom-6 right-6 p-4 glass-card border-black/5 rounded-2xl z-10">
                   <span className="font-code text-[8px] text-muted-foreground block mb-1">VENUE</span>
                   <span className="font-headline font-black text-lg tracking-tight uppercase text-primary">SCET Nagpur</span>
                 </div>
