@@ -77,7 +77,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-              className="relative aspect-square hidden md:block"
+              className="relative aspect-video hidden md:block"
             >
               <div className="absolute inset-0 glass-card rounded-[2.5rem] overflow-hidden group border-primary/10">
                 <Image 
@@ -89,9 +89,9 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
                 <div className="absolute inset-0 motherboard-grid opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
                 
-                <div className="absolute bottom-10 left-10 p-6 glass-card border-black/5 rounded-2xl">
-                  <span className="font-code text-[10px] text-muted-foreground block mb-1">DEPT_ETC</span>
-                  <span className="font-headline font-black text-xl tracking-tight uppercase text-primary">Suryodaya College</span>
+                <div className="absolute bottom-6 right-6 p-4 glass-card border-black/5 rounded-2xl">
+                  <span className="font-code text-[8px] text-muted-foreground block mb-1">DEPT_ETC</span>
+                  <span className="font-headline font-black text-lg tracking-tight uppercase text-primary">Suryodaya College</span>
                 </div>
               </div>
             </motion.div>
