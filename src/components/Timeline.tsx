@@ -5,8 +5,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const events = [
-  { day: 'STAGE 1', time: 'AUG 27, 2026', title: 'Registration Deadline', desc: 'Final date to submit team details and idea proposals via Unstop.' },
-  { day: 'STAGE 2', time: 'AUG 31, 2026', title: 'Shortlisting Results', desc: 'Announcement of Top 50 teams based on innovation and technical feasibility.' },
+  { day: 'STAGE 1', time: 'SEP 06, 2026', title: 'Registration Deadline', desc: 'Final date to submit team details and idea proposals via Unstop.' },
+  { day: 'STAGE 2', time: 'SEP 07, 2026', title: 'Shortlisting Results', desc: 'Announcement of Top 50 teams based on innovation and technical feasibility.' },
   { day: 'STAGE 3', time: 'SEP 28, 09:00 AM', title: 'Grand Finale Kickoff', desc: 'Welcome ceremony and start of the 24-hour offline build session at SCET.' },
   { day: 'STAGE 3', time: 'SEP 28, 03:00 PM', title: 'Expert Mentorship', desc: 'Industry mentors review prototype progress and technical documentation.' },
   { day: 'STAGE 3', time: 'SEP 29, 09:00 AM', title: 'Final Submission', desc: 'Deadline for prototype building and start of jury demonstrations.' },

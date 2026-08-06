@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -452,7 +453,7 @@ export default function Home() {
                 REGISTER NOW
               </MagneticButton>
               <div className="font-code text-[10px] text-primary tracking-widest uppercase font-bold">
-                Deadline: August 27, 2026
+                Deadline: September 06, 2026
               </div>
             </div>
           </motion.div>

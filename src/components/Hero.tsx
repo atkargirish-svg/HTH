@@ -59,7 +59,7 @@ export const Hero = () => {
             speed={0.4} 
             squareSize={37} 
             direction='diagonal' 
-            borderColor="rgba(0,0,0,0.6)" 
+            borderColor="rgba(0,0,0,0.3)" 
             hoverFillColor='rgba(164,31,19,0.08)' 
             shape='hexagon' 
             hoverTrailAmount={5} 
@@ -128,7 +128,7 @@ export const Hero = () => {
         >
           <div className="flex flex-col gap-1 items-center">
             <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Deadline</span>
-            <span className="font-headline font-bold text-sm md:text-lg text-foreground uppercase">AUG 27, 2026</span>
+            <span className="font-headline font-bold text-sm md:text-lg text-foreground uppercase">SEP 06, 2026</span>
           </div>
           <div className="flex flex-col gap-1 items-center">
             <span className="font-code text-[8px] md:text-[10px] text-muted-foreground uppercase tracking-widest">Venue</span>
