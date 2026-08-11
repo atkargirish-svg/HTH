@@ -1,7 +1,7 @@
 
 "use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { Loader } from '@/components/Loader';
@@ -145,6 +145,15 @@ const techLogos = [
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary overflow-x-hidden max-w-full">
       <div className="noise-overlay" />
@@ -224,8 +233,8 @@ export default function Home() {
           logos={techLogos}
           speed={120}
           direction="left"
-          logoHeight={48}
-          gap={32}
+          logoHeight={isMobile ? 32 : 48}
+          gap={isMobile ? 24 : 32}
           fadeOut
           fadeOutColor="hsl(var(--background))"
           scaleOnHover
@@ -257,11 +266,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="cursor-target h-[300px] md:h-[350px]"
+                className="cursor-target min-h-[300px]"
               >
                 <PixelCard variant="hth" className="w-full h-full">
-                  <div className="p-8 flex flex-col justify-between h-full text-left">
-                    <div>
+                  <div className="p-8 flex flex-col justify-between h-full text-left relative z-10 pointer-events-none">
+                    <div className="pointer-events-auto">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                         {domain.icon}
                       </div>
@@ -312,42 +321,43 @@ export default function Home() {
              <h2 className="font-headline text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none text-foreground">PRIZES & SUPPORT</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Runner Up 1 */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-8 rounded-[2.5rem] border-secondary/20 order-2 md:order-1 cursor-target">
-              <Trophy className="w-12 h-12 text-secondary mb-6" />
-              <h3 className="font-headline text-2xl font-black mb-2 uppercase">Runner-Up</h3>
-              <div className="text-3xl font-black text-foreground mb-4">₹7,000</div>
-              <ul className="space-y-3 text-sm text-muted-foreground mb-8">
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary" /> Cash Reward</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary" /> ₹10,000 Incubation Support</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary" /> Finalist Certificate</li>
-              </ul>
-            </motion.div>
-
-            {/* 1st Winner */}
-            <motion.div initial={{ opacity: 0, scale: 1.05 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-10 rounded-[2.5rem] border-primary/40 bg-primary/5 relative overflow-hidden order-1 md:order-2 cursor-target">
-              <div className="absolute top-0 right-0 bg-primary text-white text-[8px] font-code font-bold px-4 py-1 rounded-bl-xl tracking-widest">PLATINUM</div>
-              <Trophy className="w-16 h-16 text-primary mb-6 animate-bounce" />
-              <h3 className="font-headline text-3xl font-black mb-2 uppercase">Winner</h3>
-              <div className="text-4xl font-black text-foreground mb-4">₹10,000</div>
-              <ul className="space-y-3 text-sm text-foreground mb-8">
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> Cash Reward</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> ₹10,000 Incubation Support</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> Winner Trophy & Certificate</li>
-              </ul>
-            </motion.div>
-
-            {/* 2nd Runner Up */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="glass-card p-8 rounded-[2.5rem] border-secondary/20 order-3 cursor-target">
-              <Trophy className="w-12 h-12 text-secondary/60 mb-6" />
-              <h3 className="font-headline text-2xl font-black mb-2 uppercase tracking-tight">2nd Runner-Up</h3>
-              <div className="text-3xl font-black text-foreground mb-4">₹4,000</div>
-              <ul className="space-y-3 text-sm text-muted-foreground mb-8">
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary/60" /> Cash Reward</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary/60" /> ₹9,000 Incubation Support</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-secondary/60" /> Finalist Certificate</li>
-              </ul>
+          <div className="max-w-4xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="min-h-[400px] w-full"
+            >
+              <PixelCard variant="hth" className="w-full h-full cursor-target">
+                <div className="p-10 flex flex-col items-center justify-center h-full text-center relative z-10 pointer-events-none">
+                  <div className="pointer-events-auto flex flex-col items-center">
+                    <Trophy className="w-20 h-20 text-primary mb-8 animate-bounce" />
+                    <h3 className="font-headline text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter text-foreground">
+                      GRAND PRIZE POOL
+                    </h3>
+                    <div className="text-4xl md:text-7xl font-black text-primary mb-8 tracking-tighter">
+                      ₹50,000
+                    </div>
+                    <p className="font-headline text-xl md:text-2xl font-bold text-foreground/80 uppercase tracking-widest leading-relaxed max-w-2xl">
+                      CASH REWARD + INCUBATION SUPPORT
+                    </p>
+                    <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+                      <div className="p-3 glass-card rounded-xl border-primary/20">
+                        <span className="font-code text-[10px] text-primary block">CASH</span>
+                      </div>
+                      <div className="p-3 glass-card rounded-xl border-primary/20">
+                        <span className="font-code text-[10px] text-primary block">SUPPORT</span>
+                      </div>
+                      <div className="p-3 glass-card rounded-xl border-primary/20">
+                        <span className="font-code text-[10px] text-primary block">TROPHY</span>
+                      </div>
+                      <div className="p-3 glass-card rounded-xl border-primary/20">
+                        <span className="font-code text-[10px] text-primary block">INCUBATION</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </PixelCard>
             </motion.div>
           </div>
         </div>
