@@ -57,51 +57,52 @@ const facultySupport = [
 const leadershipMembers = [
   { 
     name: "Sakshi Maind", 
+    role: "Lead",
     linkedin: "https://www.linkedin.com/in/techsakshi-maind?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
     instagram: "https://www.instagram.com/codewiz17?igsh=Nnl1Y29icDFlZHVq", 
     image: "/leads/sakshi.PNG" 
   },
   { 
-    name: "Manish Wanjari", 
-    linkedin: "https://www.linkedin.com/in/manish-wanjari-17b00035b?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
-    instagram: "https://www.instagram.com/manii__talks__?igsh=MTZqOXRmZTBmNmhybA==", 
-    image: "/leads/manish.PNG" 
-  },
-  { 
     name: "Chaitanya Kadu", 
+    role: "Management Head",
     linkedin: "#", 
     instagram: "#", 
     image: "/leads/chaitanya.PNG" 
   },
   { 
     name: "Atharva Atkar", 
+    role: "Technical Head",
     linkedin: "https://www.linkedin.com/in/atharva-atkar-24271a384?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
     instagram: "https://www.instagram.com/atharva_atkar1?igsh=MWd1d2NiMWdpbGsxbw==", 
     image: "/leads/atharva.PNG" 
   },
   { 
-    name: "Pranavti Thombre", 
-    linkedin: "https://www.linkedin.com/in/pranavti-thombre-130407360", 
-    instagram: "https://www.instagram.com/pranavti_thombre?igsh=MXQ2bDZpdWZidzZlMg==", 
-    image: "/leads/pranvti.PNG" 
+    name: "Madhuri Damre", 
+    role: "Cultural Head",
+    linkedin: "#", 
+    instagram: "#", 
+    image: "/leads/madhuri.png" 
   },
   { 
-    name: "Saurabh Chavhan", 
-    linkedin: "https://www.linkedin.com/in/saurabh-chavhan-30176a392?utm_source=share_via&utm_content=profile&utm_medium=member_ios", 
-    instagram: "https://www.instagram.com/_sauuu_03_?igsh=MXRxNjd1ZmozbjZzdA%3D%3D&utm_source=qr", 
-    image: "/leads/saurabh.PNG" 
+    name: "Maitreyi Wankhede", 
+    role: "Documentation Head",
+    linkedin: "#", 
+    instagram: "#", 
+    image: "/leads/maitreyi.png" 
   },
   { 
-    name: "Kimaya Shrikrishna There", 
-    linkedin: "https://www.linkedin.com/in/kimaya-there-812b7b389", 
-    instagram: "https://www.instagram.com/kims_.there", 
-    image: "/leads/kimaya.jpeg" 
+    name: "Yoshita Urkude", 
+    role: "PR Head",
+    linkedin: "#", 
+    instagram: "#", 
+    image: "/leads/yoshita.png" 
   },
   { 
-    name: "Shravani Dhabekar", 
-    linkedin: "https://www.linkedin.com/in/shravani-dhabekar-45bb2b337", 
-    instagram: "https://www.instagram.com/shravani_d06", 
-    image: "/leads/shravni.jpeg" 
+    name: "Aditya Andhare", 
+    role: "Social Media Head",
+    linkedin: "#", 
+    instagram: "#", 
+    image: "/leads/aditya.png" 
   },
 ];
 
@@ -394,7 +395,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Leadership Section */}
+      {/* Leadership Section - UPDATED TO MATCH IMAGE TABLE */}
       <section id="team" className="py-24 bg-background relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
@@ -424,6 +425,7 @@ export default function Home() {
                 <TeamCard 
                   index={i} 
                   name={member.name} 
+                  role={member.role}
                   linkedin={member.linkedin} 
                   instagram={member.instagram} 
                   image={member.image}
