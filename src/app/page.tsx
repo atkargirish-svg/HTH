@@ -140,6 +140,7 @@ const techLogos = [
   { src: "/sponser/3.png", alt: "Sponsor 3" },
   { src: "/sponser/4.png", alt: "Sponsor 4" },
   { src: "/sponser/5.png", alt: "Sponsor 5" },
+  { src: "/sponser/6.png", alt: "Sponsor 6" },
 ];
 
 const REGISTRATION_URL = "https://unstop.com/p/hack-the-hardware-india-2o-hth-india-2o-buildinnovatewin-suryodaya-college-of-engineering-technology-nagpur-1730720";
@@ -395,7 +396,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Leadership Section - UPDATED TO MATCH IMAGE TABLE */}
+      {/* Leadership Section */}
       <section id="team" className="py-24 bg-background relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         

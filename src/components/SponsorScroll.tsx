@@ -10,6 +10,7 @@ const sponsorLogos = [
   { id: 3, path: '/sponser/3.png' },
   { id: 4, path: '/sponser/4.png' },
   { id: 5, path: '/sponser/5.png' },
+  { id: 6, path: '/sponser/6.png' },
 ];
 
 export const SponsorScroll = () => {
