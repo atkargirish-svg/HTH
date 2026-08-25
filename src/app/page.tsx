@@ -81,14 +81,14 @@ const leadershipMembers = [
     role: "Cultural Head",
     linkedin: "#", 
     instagram: "#", 
-    image: "/leads/madhuri.png" 
+    image: "/leads/madhuri.PNG" 
   },
   { 
     name: "Maitreyi Wankhede", 
     role: "Documentation Head",
     linkedin: "#", 
     instagram: "#", 
-    image: "/leads/maitreyi.png" 
+    image: "/leads/maitreyi.PNG" 
   },
   { 
     name: "Yoshita Urkude", 
@@ -102,7 +102,7 @@ const leadershipMembers = [
     role: "Social Media Head",
     linkedin: "#", 
     instagram: "#", 
-    image: "/leads/aditya.png" 
+    image: "/leads/aditya.PNG" 
   },
 ];
 
