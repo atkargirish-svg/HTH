@@ -76,7 +76,7 @@ export const Hero = () => {
       >
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12 cursor-target"
+          className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card border-primary/20 text-primary mb-8 md:mb-12"
         >
           <Cpu className="w-3 h-3 md:w-4 md:h-4" />
           <span className="font-code text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">HTH INDIA 2.0 • PAN-Level Innovation</span>
@@ -109,14 +109,14 @@ export const Hero = () => {
         >
           <MagneticButton 
             onClick={() => window.open(REGISTRATION_URL, "_blank")}
-            className="w-full sm:w-auto px-12 py-5 text-base cursor-target"
+            className="w-full sm:w-auto px-12 py-5 text-base"
           >
             REGISTER NOW
           </MagneticButton>
           <MagneticButton 
             variant="outline" 
             onClick={() => window.open(INSTA_URL, "_blank")}
-            className="w-full sm:w-auto px-12 py-5 text-base cursor-target"
+            className="w-full sm:w-auto px-12 py-5 text-base"
           >
             INSTAGRAM
           </MagneticButton>

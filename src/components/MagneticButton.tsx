@@ -47,7 +47,7 @@ export const MagneticButton = ({ children, className, variant = 'primary', onCli
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "relative px-8 py-3 rounded-full font-headline font-bold transition-colors duration-200 group flex items-center gap-2 cursor-target disabled:opacity-50 disabled:cursor-not-allowed",
+        "relative px-8 py-3 rounded-full font-headline font-bold transition-colors duration-200 group flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed",
         variants[variant],
         className
       )}

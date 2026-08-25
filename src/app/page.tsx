@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { Loader } from '@/components/Loader';
-import TargetCursor from '@/components/TargetCursor';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Stats } from '@/components/Stats';
@@ -16,7 +15,7 @@ import { TeamCard } from '@/components/TeamCard';
 import FluidGlass from '@/components/FluidGlass';
 import LogoLoop from '@/components/LogoLoop';
 import PixelCard from '@/components/PixelCard';
-import { Cpu, Smartphone, Lightbulb, Trophy, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
+import { Cpu, Smartphone, Lightbulb, Trophy, Zap, Shield, Users } from 'lucide-react';
 import Image from 'next/image';
 
 // Dynamically import CircularGallery to prevent SSR issues with WebGL/OGL
@@ -158,12 +157,6 @@ export default function Home() {
     <main className="relative min-h-screen selection:bg-primary/20 selection:text-primary overflow-x-hidden max-w-full">
       <div className="noise-overlay" />
       <Loader />
-      <TargetCursor 
-        spinDuration={2}
-        hideDefaultCursor={true}
-        parallaxOn={true}
-        cursorColor="hsl(var(--primary))"
-      />
       <Navbar />
 
       <Hero />
@@ -211,7 +204,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-              className="relative aspect-video hidden md:block cursor-target"
+              className="relative aspect-video hidden md:block"
             >
               <div className="absolute inset-0 glass-card rounded-[2.5rem] overflow-hidden group border-primary/10">
                 <FluidGlass imagePlaceholder="/college.png" />
@@ -266,7 +259,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="cursor-target min-h-[300px]"
+                className="min-h-[300px]"
               >
                 <PixelCard variant="hth" className="w-full h-full">
                   <div className="p-8 flex flex-col justify-between h-full text-left relative z-10 pointer-events-none">
@@ -298,7 +291,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden cursor-target">
+        <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden">
           <CircularGallery
             items={highlights2k25}
             bend={3}
@@ -328,7 +321,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="min-h-[400px] w-full"
             >
-              <PixelCard variant="hth" className="w-full h-full cursor-target">
+              <PixelCard variant="hth" className="w-full h-full">
                 <div className="p-10 flex flex-col items-center justify-center h-full text-center relative z-10 pointer-events-none">
                   <div className="pointer-events-auto flex flex-col items-center">
                     <Trophy className="w-20 h-20 text-primary mb-8 animate-bounce" />
@@ -387,7 +380,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto justify-items-center">
             {facultySupport.map((member, i) => (
-              <div key={i} className="cursor-target w-full">
+              <div key={i} className="w-full">
                 <TeamCard 
                   index={i} 
                   name={member.name} 
@@ -427,7 +420,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto justify-items-center">
             {leadershipMembers.map((member, i) => (
-              <div key={i} className="cursor-target w-full">
+              <div key={i} className="w-full">
                 <TeamCard 
                   index={i} 
                   name={member.name} 
@@ -458,7 +451,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center gap-6">
               <MagneticButton 
                 onClick={() => window.open(REGISTRATION_URL, "_blank")}
-                className="px-12 py-6 text-lg cursor-target"
+                className="px-12 py-6 text-lg"
               >
                 REGISTER NOW
               </MagneticButton>
@@ -493,9 +486,9 @@ export default function Home() {
             <div>
               <h4 className="font-code font-bold mb-6 text-foreground uppercase tracking-[0.3em] text-[10px]">Links</h4>
               <ul className="space-y-3 font-headline text-sm">
-                <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors cursor-target">About</a></li>
-                <li><a href="#timeline" className="text-muted-foreground hover:text-primary transition-colors cursor-target">Timeline</a></li>
-                <li><a href="#team" className="text-muted-foreground hover:text-primary transition-colors cursor-target">Team</a></li>
+                <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
+                <li><a href="#timeline" className="text-muted-foreground hover:text-primary transition-colors">Timeline</a></li>
+                <li><a href="#team" className="text-muted-foreground hover:text-primary transition-colors">Team</a></li>
               </ul>
             </div>
             <div>
