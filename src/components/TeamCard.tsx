@@ -41,12 +41,8 @@ export const TeamCard = ({ name, index, linkedin, instagram, image, role }: Team
             <h3 className="font-headline text-sm font-bold text-white tracking-tight uppercase leading-tight">
               {name}
             </h3>
-            {role && (
-              <p className="text-[10px] font-code text-primary-foreground/80 uppercase tracking-widest mb-2">
-                {role}
-              </p>
-            )}
-            <div className="flex gap-2">
+            {/* Role removed as requested */}
+            <div className="flex gap-2 mt-2">
               {linkedin && linkedin !== "#" && (
                 <a
                   href={linkedin}
